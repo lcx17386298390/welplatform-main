@@ -1,0 +1,135 @@
+/* Existing styles */
+
+/* ... other styles ... */
+
+/* User info list styles */
+.userinfo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: #686872;
+}
+
+/* Nickname input alignment */
+.nickname-input {
+  text-align: right;
+  flex-grow: 1;
+  margin-right: 20rpx;
+  /* Adjust as necessary for proper alignment */
+}
+
+/* Avatar button and image styles */
+.avatar-button {
+  padding: 0;
+  /* Remove padding to fit the border around the image */
+  border-radius: 50%;
+  border: 2px solid #e5e5e5;
+}
+
+.avatar-image {
+  width: 10rem;
+  height: 10rem;
+  display: block;
+  border-radius: 50%;
+}
+
+.font {
+  font-size: 40rpx;
+  color: white;
+}
+
+.font_2 {
+  text-align: right;
+}
+
+
+.avatar-button {
+  padding: 0;
+  /* Remove padding to fit the border around the image */
+  border-radius: 50%;
+  width: 4rem;
+  /* Smaller size for the avatar, adjust as needed */
+  height: 4rem;
+  /* Same as width to keep the aspect ratio */
+  margin-right: 10rpx;
+  /* Adds some space between the avatar and the text */
+}
+
+.avatar-image {
+  width: 100%;
+  /* Use all available space within the button */
+  height: 100%;
+  /* Maintain aspect ratio */
+  border-radius: 50%;
+}
+
+/* Ensuring the nickname and avatar align with the list */
+.section {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: transparent;
+  opacity: 0.65;
+}
+.section2{
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: transparent;
+}
+
+.button-container {
+  gap: 10rpx;
+}
+
+.modifyBnt {
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  font-size: 32rpx;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+.modifyBnt:active{
+  transform: scale(1.2);
+}
+.modifyBnt2{
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  font-size: 32rpx;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+.modifyBnt2:active{
+  transform: scale(1.2);
+}
+/* ... other styles ... */
+
+/* Align the exit login button next to the save button */
+/* Add this class if it doesn't already exist in your WXSS */
+.exit-button-container {
+  display: flex;
+  width: 100%;
+  /* Ensure the container takes full width */
+  justify-content: center;
+  /* Center the button horizontally */
+}
+
+/* ... other styles ... */
+
+/* Styles for the list items to ensure consistency */
+.userinfo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: #686872;
+}
+
+/* ... other styles ... */

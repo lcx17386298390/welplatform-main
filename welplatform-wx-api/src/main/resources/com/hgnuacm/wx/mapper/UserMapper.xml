@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hgnuacm.wx.mapper.UserMapper">
+    
+    <resultMap type="com.hgnuacm.wx.domain.User" id="UserResult">
+        <result property="uid"    column="uid"    />
+        <result property="userName"    column="user_name"    />
+        <result property="password"    column="password"    />
+        <result property="gender"    column="gender"    />
+        <result property="avatar"    column="avatar"    />
+        <result property="mobile"    column="mobile"    />
+        <result property="ipSource"    column="ip_source"    />
+        <result property="school"    column="school"    />
+        <result property="name"    column="name"    />
+        <result property="idCard"    column="id_card"    />
+        <result property="createDate"    column="create_time"    />
+        <result property="status"    column="status"    />
+        <result property="studentId"    column="student_id"    />
+        <result property="admissionStatus"    column="admission_status"    />
+        <result property="major"    column="major"    />
+        <result property="weixinOpenid"    column="weixin_openid"    />
+        <result property="shareUserId"    column="share_user_id"    />
+        <result property="email"    column="email"    />
+        <result property="photo"    column="photo"    />
+    </resultMap>
+
+    <sql id="selectUserVo">
+        select uid, user_name, password, gender, avatar, mobile, ip_source, school, name, id_card, create_time, status, student_id, admission_status, major, weixin_openid, share_user_id, email, photo from t_user
+    </sql>
+
+    <select id="selectUserList" parameterType="com.hgnuacm.wx.domain.User" resultMap="UserResult">
+        <include refid="selectUserVo"/>
+        <where>
+            <if test="userName != null  and userName != ''"> and user_name like concat('%', #{userName}, '%')</if>
+            <if test="password != null  and password != ''"> and password = #{password}</if>
+            <if test="gender != null "> and gender = #{gender}</if>
+            <if test="avatar != null  and avatar != ''"> and avatar = #{avatar}</if>
+            <if test="mobile != null  and mobile != ''"> and mobile = #{mobile}</if>
+            <if test="ipSource != null  and ipSource != ''"> and ip_source = #{ipSource}</if>
+            <if test="school != null  and school != ''"> and school = #{school}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="idCard != null  and idCard != ''"> and id_card = #{idCard}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="createDate != null "> and create_time = #{createDate}</if>
+            <if test="studentId != null  and studentId != ''"> and student_id = #{studentId}</if>
+            <if test="admissionStatus != null "> and admission_status = #{admissionStatus}</if>
+            <if test="major != null  and major != ''"> and major = #{major}</if>
+            <if test="weixinOpenid != null  and weixinOpenid != ''"> and weixin_openid = #{weixinOpenid}</if>
+            <if test="shareUserId != null  and shareUserId != ''"> and share_user_id = #{shareUserId}</if>
+            <if test="email != null "> and email = #{email}</if>
+            <if test="photo != null "> and photo = #{photo}</if>
+        </where>
+    </select>
+    
+    <select id="selectUserByUid" parameterType="String" resultMap="UserResult">
+        <include refid="selectUserVo"/>
+        where uid = #{uid}
+    </select>
+
+    <select id="selectUserByOpenId" resultMap="UserResult">
+        <include refid="selectUserVo"/>
+        where weixin_openid = #{weixinOpenid}
+    </select>
+    <select id="queryByUsername" resultMap="UserResult">
+        <include refid="selectUserVo"/>
+        where user_name = #{userName}
+    </select>
+    <select id="queryByMobile" resultMap="UserResult">
+        <include refid="selectUserVo"/>
+        where mobile = #{mobile}
+    </select>
+    <select id="queryByOpenid" resultMap="UserResult">
+        <include refid="selectUserVo"/>
+        where weixin_openid = #{weixinOpenid}
+    </select>
+    <select id="queryByEmail" resultMap="UserResult">
+        <include refid="selectUserVo"/>
+        where email = #{email}
+    </select>
+
+    <select id="queryAllAdvancedUsers" resultType="com.hgnuacm.wx.domain.User">
+        select * from t_user where admission_status = 1
+    </select>
+
+    <insert id="insertUser" parameterType="com.hgnuacm.wx.domain.User">
+        insert into t_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">uid,</if>
+            <if test="userName != null and userName != ''">user_name,</if>
+            <if test="gender != null">gender,</if>
+            <if test="email != null">email,</if>
+            <if test="password != null">password,</if>
+            <if test="avatar != null">avatar,</if>
+            <if test="mobile != null">mobile,</if>
+            <if test="ipSource != null">ip_source,</if>
+            <if test="school != null">school,</if>
+            <if test="name != null">name,</if>
+            <if test="idCard != null">id_card,</if>
+            <if test="createDate != null">create_time,</if>
+            <if test="status != null">status,</if>
+            <if test="studentId != null">student_id,</if>
+            <if test="admissionStatus != null">admission_status,</if>
+            <if test="major != null">major,</if>
+            <if test="weixinOpenid != null">weixin_openid,</if>
+            <if test="shareUserId != null">share_user_id,</if>
+            <if test="photo != null">photo,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">#{uid},</if>
+            <if test="userName != null and userName != ''">#{userName},</if>
+            <if test="gender != null">#{gender},</if>
+            <if test="email != null">#{email},</if>
+            <if test="password != null">#{password},</if>
+            <if test="avatar != null">#{avatar},</if>
+            <if test="mobile != null">#{mobile},</if>
+            <if test="ipSource != null">#{ipSource},</if>
+            <if test="school != null">#{school},</if>
+            <if test="name != null">#{name},</if>
+            <if test="idCard != null">#{idCard},</if>
+            <if test="createDate != null">#{createDate},</if>
+            <if test="status != null">#{status},</if>
+            <if test="studentId != null">#{studentId},</if>
+            <if test="admissionStatus != null">#{admissionStatus},</if>
+            <if test="major != null">#{major},</if>
+            <if test="weixinOpenid != null">#{weixinOpenid},</if>
+            <if test="shareUserId != null">#{shareUserId},</if>
+            <if test="photo != null">#{photo},</if>
+         </trim>
+    </insert>
+
+    <update id="updateUser" parameterType="com.hgnuacm.wx.domain.User">
+        update t_user
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userName != null and userName != ''">user_name = #{userName},</if>
+            <if test="gender != null">gender = #{gender},</if>
+            <if test="password != null">password = #{password},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="avatar != null">avatar = #{avatar},</if>
+            <if test="mobile != null">mobile = #{mobile},</if>
+            <if test="ipSource != null">ip_source = #{ipSource},</if>
+            <if test="school != null">school = #{school},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="idCard != null">id_card = #{idCard},</if>
+            <if test="createDate != null">create_time = #{createDate},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="studentId != null">student_id = #{studentId},</if>
+            <if test="admissionStatus != null">admission_status = #{admissionStatus},</if>
+            <if test="major != null">major = #{major},</if>
+            <if test="weixinOpenid != null">weixin_openid = #{weixinOpenid},</if>
+            <if test="shareUserId != null">share_user_id = #{shareUserId},</if>
+            <if test="photo != null">photo = #{photo},</if>
+        </trim>
+        where uid = #{uid}
+    </update>
+
+    <delete id="deleteUserByUid" parameterType="String">
+        delete from t_user where uid = #{uid}
+    </delete>
+
+    <delete id="deleteUserByUids" parameterType="String">
+        delete from t_user where uid in 
+        <foreach item="uid" collection="array" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </delete>
+</mapper>

@@ -1,0 +1,157 @@
+/* 页面整体布局，居中显示 */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* 使用视口高度 */
+  margin: 0;
+  /* 去掉外边距 */
+  padding: 0;
+  /* 去掉内边距 */
+  font-family: Source;
+}
+.bgm{
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bgmImgage{
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+}
+/* 表单盒子样式，居中显示 */
+.form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 居中对齐 */
+  width: 90%;
+  /* 根据屏幕大小调整宽度 */
+  max-width: 777rpx;
+  /* 限制表单的最大宽度，保持内容居中 */
+  overflow: hidden;
+  padding: 0;
+  background: transparent;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* 表单项样式 */
+.form-item {
+  background: transparent;
+  /* 透明背景，去除白色边框 */
+  border: none;
+  /* 去除边框 */
+  z-index: 5s;
+  --td-button-default-bg-color: transparent;
+  --td-button-default-border-color:transparent;
+  background-repeat: no-repeat;
+  margin-left: 120rpx;
+  background-size: 100% 100%;
+}
+
+/* 输入框样式 */
+.form-item .t-input {
+  width: 100%;
+  /* Ensure the input takes the full width */
+  min-height: 100rpx;
+  /* Set a minimum height for larger touch area */
+  margin: 20rpx 0;
+  /* Consistent margin */
+  padding: 60rpx;
+  /* Consistent padding */
+  font-size: 32rpx;
+}
+
+/* 登录按钮样式 */
+.login-btn {
+  width: 100%;
+  /* 宽度填满容器 */
+  margin: 30rpx 0;
+  /* 顶部和底部间距 */
+  height: 100rpx;
+  /* 增加按钮的高度 */
+  line-height: 100rpx;
+  /* 调整行高以居中文本 */
+  font-size: 36rpx;
+  /* 字体颜色 */
+  display: flex;
+  /* 使用flex布局使图标和文本居中 */
+  justify-content: center;
+  /* 水平居中 */
+  align-items: center;
+  /* 垂直居中 */
+  --td-button-default-bg-color: transparent;
+}
+
+/* 登录按钮样式 */
+.login-btn-active {
+  width: 100%;
+  /* 宽度填满容器 */
+  margin: 20rpx 10rpx;
+  /* 顶部和底部间距 */
+  height: 200rpx;
+  /* 增加按钮的高度 */
+  line-height: 100rpx;
+  /* 调整行高以居中文本 */
+  font-size: 36rpx;
+  /* 字体大小调整 */
+  /* 圆角半径，创建圆角按钮 */
+  --td-button-default-bg-color: transparent;
+  /* 字体颜色 */
+  display: flex;
+  /* 使用flex布局使图标和文本居中 */
+  justify-content: center;
+  /* 水平居中 */
+  align-items: center;
+  --td-button-default-bg-color: transparent;
+  --td-button-default-border-color:transparent;--td-button-default-active-bg-color:transparent;
+  --td-button-default-active-border-color:transparent;
+  background-repeat: no-repeat;
+  margin-left: 120rpx;
+  background-size: 75% 110%;
+  z-index: 5;
+  /* 垂直居中 */
+}
+.login-btn-active:active{
+  transform: scale(1.2); /* 放大动画 */
+  filter: brightness(0.8); /* 颜色加深 */
+}
+/* 底部文本链接样式 */
+.form-item-text {
+  width: 100%;
+  margin-top: 20rpx;
+  color: aliceblue;
+  /* 适当顶部外边距 */
+  display: flex;
+  justify-content: space-between;
+  z-index: 5;
+  /* 两端对齐 */
+}
+.form-item-text {
+  flex-direction: column; /* 让子元素垂直排列 */
+  align-items: flex-end; /* 让子元素在右边 */
+  justify-content: space-between; /* 让子元素在上下两端 */
+}
+
+.form-item-text .register,
+.form-item-text .reset {
+  color: #e0e0e0;
+  /* 柔和的紫色，符合游戏风格 */
+  font-size: 28rpx;
+}
+
+.login {
+  position: absolute;
+  z-index: -1;
+}
+
+.input {
+  --td-input-bg-color: transparent;
+  --td-input-border-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 100% 260%;
+  position: absolute;
+}

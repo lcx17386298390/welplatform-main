@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hgnuacm.wx.mapper.PointMapper">
+
+    <resultMap type="com.hgnuacm.wx.domain.Point" id="PointResult">
+        <result property="uid" column="uid"/>
+        <result property="userId" column="user_id"/>
+        <result property="points" column="points"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <sql id="selectPointVo">
+        select uid, user_id, points, update_time
+        from t_point
+    </sql>
+
+    <select id="selectAllPoint" resultMap="PointResult">
+        select * from t_point ORDER BY points DESC
+            LIMIT 10;
+    </select>
+
+    <select id="selectPointList" parameterType="com.hgnuacm.wx.domain.Point" resultMap="PointResult">
+        <include refid="selectPointVo"/>
+        <where>
+            <if test="userId != null  and userId != ''">and user_id = #{userId}</if>
+            <if test="points != null ">and points = #{points}</if>
+        </where>
+    </select>
+
+    <select id="selectPointByUid" parameterType="String" resultMap="PointResult">
+        <include refid="selectPointVo"/>
+        where uid = #{uid}
+    </select>
+
+    <insert id="insertPoint" parameterType="com.hgnuacm.wx.domain.Point">
+        insert into t_point
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">uid,</if>
+            <if test="userId != null and userId != ''">user_id,</if>
+            <if test="points != null">points,</if>
+            <if test="updateTime != null">update_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">#{uid},</if>
+            <if test="userId != null and userId != ''">#{userId},</if>
+            <if test="points != null">#{points},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+        </trim>
+    </insert>
+
+    <update id="updatePoint" parameterType="com.hgnuacm.wx.domain.Point">
+        update t_point
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null and userId != ''">user_id = #{userId},</if>
+            <if test="points != null">points = #{points},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </trim>
+        where uid = #{uid}
+    </update>
+
+    <delete id="deletePointByUid" parameterType="String">
+        delete
+        from t_point
+        where uid = #{uid}
+    </delete>
+
+    <delete id="deletePointByUids" parameterType="String">
+        delete from t_point where uid in
+        <foreach item="uid" collection="array" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </delete>
+
+
+    <select id="selectPointByPointsList" parameterType="com.hgnuacm.wx.domain.Point" resultMap="PointResult">
+        <include refid="selectPointVo"/>
+        <where>
+            <if test="userId != null and userId != ''">and user_id=#{userId}</if>
+            <if test="points != null">and points =#{points}</if>
+        </where>
+        ORDER BY points DESC,update_time ASC
+    </select>
+
+    <select id="selectPointByUserId" resultType="com.hgnuacm.wx.domain.Point">
+        <include refid="selectPointVo"/>
+        where user_id = #{userId}
+    </select>
+
+</mapper>

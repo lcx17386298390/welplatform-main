@@ -1,0 +1,103 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* 在屏幕上垂直和水平居中内容 */
+  height: 100vh;
+  /* 使用视口高度，使.container占满整个屏幕 */
+  background: transparent;
+  background-repeat: no-repeat;
+  position: absolute;
+  /* 调整为养成类游戏风格的背景色 */
+  padding: 0;
+  margin: 0;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 555rpx;
+  /* 限制登录框的最大宽度，可以根据实际需要调整 */
+  overflow: hidden;
+  background: transparent;
+  /* 去掉背景色 */
+}
+.icon{
+  color: #000000;  
+}
+.wx-login-btn,
+.account-login-btn {
+  width: 90%;
+  /* 适度减小宽度，保持按钮大小适中 */
+  margin: 20rpx auto;
+  /* 减小上下边距，使按钮紧凑 */
+  height: 100rpx;
+  /* 减小按钮高度 */
+  line-height: 80rpx;
+  /* 调整行高以垂直居中文字 */
+  font-size: 28rpx;
+  /* 字体大小可以根据需要调整 */
+  border-radius: 40rpx;
+  /* 圆角半径与按钮高度保持一致 */
+  box-shadow: none;
+  /* 移除阴影或边框 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 2rpx;
+  margin-bottom: 40rpx;
+}
+.login-sure{
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+}
+.wx-login-btn {
+  z-index: 1;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  --td-button-primary-bg-color:transparent;
+  --td-button-primary-border-color:transparent;
+  --td-button-primary-active-bg-color:transparent;--td-button-primary-active-border-color	:transparent;
+}
+
+.account-login-btn {
+  z-index: 1;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  --td-button-default-border-color:transparent;
+  --td-button-default-bg-color:transparent;
+  --td-button-default-active-bg-color:transparent;--td-button-default-active-border-color	:transparent;
+  --td-button-default-text-active-bg-color:transparent;
+  margin-top: 99rpx;
+  /* 与上面的按钮有适当间距 */
+}
+.wx-login-btn:active,
+.account-login-btn:active {
+  transform: scale(1.2); /* 放大动画 */
+  filter: brightness(0.8); /* 颜色加深 */
+}
+.bgm{
+ position: absolute;
+}
+.bgmImage{
+   z-index: -1;
+  background-size: 120%;
+  width: 1039rpx;
+  background-repeat: no-repeat;
+  position: absolute;
+  background-color: transparent;
+}
+.text{
+  font-size: 30rpx;
+  font-family: maozi;
+  z-index: 5;
+}
+/* WeChat login button text color */
+.wx-login-btn text {
+  color: #000000;
+  /* Set the text color to black */
+}

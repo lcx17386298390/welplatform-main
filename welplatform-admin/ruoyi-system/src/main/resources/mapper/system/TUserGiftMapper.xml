@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.TUserGiftMapper">
+    
+    <resultMap type="TUserGift" id="TUserGiftResult">
+        <result property="uid"    column="uid"    />
+        <result property="userId"    column="user_id"    />
+        <result property="giftId"    column="gift_id"    />
+        <result property="remark"    column="remark"    />
+        <result property="userAddress"    column="user_address"    />
+    </resultMap>
+
+    <sql id="selectTUserGiftVo">
+        select uid, user_id, gift_id, remark, user_address from t_user_gift
+    </sql>
+
+    <select id="selectTUserGiftList" parameterType="TUserGift" resultMap="TUserGiftResult">
+        <include refid="selectTUserGiftVo"/>
+        <where>  
+            <if test="userId != null  and userId != ''"> and user_id = #{userId}</if>
+            <if test="giftId != null  and giftId != ''"> and gift_id = #{giftId}</if>
+            <if test="userAddress != null  and userAddress != ''"> and user_address = #{userAddress}</if>
+        </where>
+    </select>
+    
+    <select id="selectTUserGiftByUid" parameterType="String" resultMap="TUserGiftResult">
+        <include refid="selectTUserGiftVo"/>
+        where uid = #{uid}
+    </select>
+        
+    <insert id="insertTUserGift" parameterType="TUserGift">
+        insert into t_user_gift
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">uid,</if>
+            <if test="userId != null and userId != ''">user_id,</if>
+            <if test="giftId != null and giftId != ''">gift_id,</if>
+            <if test="remark != null">remark,</if>
+            <if test="userAddress != null">user_address,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">#{uid},</if>
+            <if test="userId != null and userId != ''">#{userId},</if>
+            <if test="giftId != null and giftId != ''">#{giftId},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="userAddress != null">#{userAddress},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTUserGift" parameterType="TUserGift">
+        update t_user_gift
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null and userId != ''">user_id = #{userId},</if>
+            <if test="giftId != null and giftId != ''">gift_id = #{giftId},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="userAddress != null">user_address = #{userAddress},</if>
+        </trim>
+        where uid = #{uid}
+    </update>
+
+    <delete id="deleteTUserGiftByUid" parameterType="String">
+        delete from t_user_gift where uid = #{uid}
+    </delete>
+
+    <delete id="deleteTUserGiftByUids" parameterType="String">
+        delete from t_user_gift where uid in 
+        <foreach item="uid" collection="array" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </delete>
+</mapper>

@@ -1,0 +1,28 @@
+@import 'index.wxss';
+
+
+.search-icon {
+  margin: auto 20rpx;
+}
+.search {
+  width: 96%;
+  height: 80rpx;
+  background-color: #ffffff;
+  border-radius: 15px;
+  margin: 20rpx 2%;
+  display: flex;
+}
+
+.search-form {
+  margin: auto 15rpx;
+  width: 100%;
+}
+
+.page2 {
+  position: fixed; /* 固定定位，使元素占满整个屏幕 */
+  top: 0;
+  left: 0;
+  width: 100vw; 
+  height: 100vh; 
+  background-color: #ddd5bcf5;
+}

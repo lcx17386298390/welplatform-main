@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "navigationBarTitleText": "宿舍",
+  "usingComponents": {
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog"
+  }
+}

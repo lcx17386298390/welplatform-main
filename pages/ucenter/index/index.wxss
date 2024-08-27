@@ -1,0 +1,796 @@
+/* Styles for the parts */
+.part1,
+.part2,
+.part3 {
+  /* background-color: #ffd6ba; */
+  margin: 5rpx;
+  /* Adjust the margin as needed for spacing between sections */
+  padding: 5rpx;
+  z-index: 3;
+  /* Adjust the padding as needed for internal spacing */
+}
+
+/* You might need to adjust the top and bottom margins to zero for adjacent parts to avoid double margins */
+.part1 {
+  margin-bottom: 10rpx;
+  /* Remove bottom margin if adjacent parts are directly touching */
+}
+/* Base page styles */
+.page {
+  background-color: transparent; /* Soft green, similar to Travel Frog's background */
+  color: #3C3C3C; /* 柔和的字体颜色 */
+}
+
+/* General adjustments to soften the design and make it more whimsical */
+.text_3, .font, .font_2, .text_4, .text_5, .item-text, .font_3, .font_4, .font_5, .font_6, .font_7, .font_8 {
+  color: #f0f0f0; /* Dark green text for a nature-inspired look */
+}
+
+/* Specific section adjustments for a cozy, card-like aesthetic */
+.part1, .part2, .part3, .group_4, .group_5, .group_6, .view, .view_2, .section, .section_2, .section_3, .section_6 {
+  background-color: transparent; /* Card background */
+  z-index: 3;
+  border-radius: 15rpx; /* Rounded corners for a softer look */
+  box-shadow: 0 4rpx 6rpx rgba(0, 0, 0, 0.1); /* Subtle shadows for depth */
+}
+.bgm{
+  background-color: rgb(209, 185, 137);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -10;
+}
+/* Image adjustments for avatar and buttons */
+.image_6, .image_7, .image_9, .image_10, .image_11, .image_12, .image_13, .image_14, .image_15, .image_16, .image_17 {
+  border-radius: 50%; /* Circular images for a friendly, game-like feel */
+}
+
+
+
+
+/* Ensuring that the page is scrollable for smaller devices */
+.group_2, .group_3, .group_5, .group_6, .group_7, .group_11 {
+  overflow-y: auto; /* Scrollable content */
+}
+
+/* Specific adjustments for swiper */
+swiper {
+  border-radius: 10rpx; /* Slightly rounded corners for swiper */
+}
+
+/* Apply a natural, peaceful image as a background to the entire page for that 'Travel Frog' ambiance */
+.page {
+  background-size: cover; /* Cover the entire page */
+}
+
+/* ... other styles ... */
+.horizontal-scroll {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  /* Items will be in one line */
+  padding: 10rpx 20rpx;
+  background-repeat: no-repeat;
+  background-size: 101% 100%;
+}
+
+.grid-item_2 {
+  display: inline-block;
+  /* 改为内联块，以便水平排列 */
+  width: 80px;
+  /* 根据需要调整宽度 */
+  margin-right: 20px;
+  /* 添加右边距以分隔项目 */
+  vertical-align: top;
+  /* 确保元素顶部对齐 */
+  background-size: cover;
+  /* 背景图片覆盖 */
+  height: 80px;
+  /* 根据需要调整高度 */
+}
+
+.item-text {
+  width: 100%;
+  /* Ensure text spans the width of the container */
+  text-align: center;
+  /* Center text horizontally */
+  color: #a3a0a0;
+  /* Text color, adjust as needed */
+  font-size: 24rpx;
+  /* Adjust font size as needed */
+  position: absolute;
+  bottom: 10rpx;
+  /* Adjust distance from bottom as needed */
+}
+
+/* Styles for part2 container */
+.part2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200rpx;
+  /* Set a fixed height or as needed */
+}
+.part4{
+  z-index: 3;
+}
+/* Container for points and status */
+.points-status-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* Adjust width as needed */
+}
+
+/* Styles for points section */
+.points {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styles for status section */
+.status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styles for points and status text */
+.points-text,
+.status-text {
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+  font-family: Source;
+}
+
+/* Styles for points and status labels */
+.points-label,
+.status-label {
+  font-size: xx-large;
+  font-family: miaozi;
+  color: #fffffff5; /* 文字颜色 */
+}
+
+/* ... other styles ... */
+
+.part2 {
+  margin-top: 20rpx;
+  /* Remove top margin if adjacent parts are directly touching */
+  margin-bottom: 50rpx;
+  /* Remove bottom margin if adjacent parts are directly touching */
+}
+
+.part3 {
+  margin-top: 20rpx;
+  /* Remove top margin if adjacent parts are directly touching */
+  background-color: transparent;
+}
+
+.user .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx;
+  background-color: transparent;
+}
+
+.user .header .picTxt {
+  display: flex;
+  align-items: center;
+}
+
+
+.user .header .picTxt .pictrue {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  margin-right: 50rpx;
+}
+
+.user .header .picTxt .pictrue image {
+  width: 100%;
+  height: 100%;
+}
+
+
+.iconfont.icon-shezhi {
+  font-size: 50rpx;
+  /* 调整大小，根据需要修改 */
+  color: rgb(212, 212, 212);
+  margin-left: 400rpx;
+  margin-top: auto;
+}
+
+
+.ml-15 {
+  margin-left: 30rpx;
+}
+
+.ml-11 {
+  margin-left: 22rpx;
+}
+
+.ml-29 {
+  margin-left: 58rpx;
+}
+
+.ml-17 {
+  margin-left: 34rpx;
+}
+
+.mt-9 {
+  margin-top: 18rpx;
+}
+
+.page {
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  /* 如果页面内容不是全屏的，可以改为 auto */
+}
+
+.section {
+  background-image: linear-gradient(210deg, #e7166b -119.1%, #e7166b 225.4%);
+}
+
+.image {
+  opacity: 0.45;
+  width: 100vw;
+  height: 57.0667vw;
+}
+
+.image_4 {
+  width: 48rpx;
+  height: 22.66rpx;
+}
+
+.pos_4 {
+  position: absolute;
+  right: 29.32rpx;
+  top: 32.66rpx;
+}
+
+.image_3 {
+  width: 30rpx;
+  height: 22rpx;
+}
+
+.pos_3 {
+  position: absolute;
+  right: 88rpx;
+  top: 32.66rpx;
+}
+
+.image_2 {
+  width: 34rpx;
+  height: 22rpx;
+}
+
+.pos_2 {
+  position: absolute;
+  right: 128rpx;
+  top: 33.34rpx;
+}
+
+.pos {
+  position: absolute;
+  left: 64.14rpx;
+  top: 35.64rpx;
+}
+
+.image_5 {
+  width: 32rpx;
+  height: 36rpx;
+}
+
+.pos_5 {
+  position: absolute;
+  right: 44rpx;
+  top: 124rpx;
+}
+
+.section_2 {
+  padding: 44rpx 0 84rpx;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.group {
+  padding: 0 44rpx;
+}
+
+.image_6 {
+  border-radius: 50%;
+  width: 152rpx;
+  height: 152rpx;
+}
+
+.font_2 {
+  font-size: 20rpx;
+}
+
+.text_4 {
+  line-height: 14.6rpx;
+}
+
+.image_8 {
+  margin-left: 36rpx;
+  width: 12rpx;
+  height: 16rpx;
+}
+
+.text_5 {
+  margin-left: 20rpx;
+  margin-top: 15rpx;
+  line-height: 28rpx;
+  width: 116rpx;
+}
+
+.group_2 {
+  margin-top: 12rpx;
+}
+
+.image_9 {
+  margin-left: 16rpx;
+  border-radius: 50%;
+  width: 26rpx;
+  height: 26rpx;
+}
+
+.image_10 {
+  margin-left: 0;
+}
+
+.text-wrapper {
+  margin-left: -10rpx;
+  padding-top: 8rpx;
+  background-image: url('https://ide.code.fun/api/image?token=65ee824beb5b55001133e845&name=a2932aa3d5f13dc2277170d6476cc6a8.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 42rpx;
+  height: 22rpx;
+}
+
+.font_3 {
+  font-size: 14rpx;
+  line-height: 10.22rpx;
+}
+
+.text-wrapper_2 {
+  margin-left: -10rpx;
+  padding-top: 8rpx;
+  background-image: url('https://ide.code.fun/api/image?token=65ee824beb5b55001133e845&name=398293fc7863fea75fd864eb710eb77a.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 42rpx;
+  height: 22rpx;
+}
+
+.image_11 {
+  margin-left: 16rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.text_4 {
+  margin-top: 20rpx;
+}
+
+.image_7 {
+  margin-top: 28rpx;
+  width: 10rpx;
+  height: 18rpx;
+}
+
+.group_3 {
+  margin-right: 44rpx;
+  margin-top: 80rpx;
+}
+
+.equal-division {
+  align-self: flex-start;
+}
+
+.group_4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  /* 这将确保元素可以填充等分的空间 */
+}
+
+.equal-division-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 确保子项水平居中 */
+  justify-content: center;
+  /* 确保子项垂直居中 */
+  text-align: center;
+  /* 文本居中 */
+  width: 100%;
+  /* 可能需要设置宽度为100% */
+}
+
+.font_4 {
+  font-size: 30rpx;
+  line-height: 40rpx;
+  align-self: center;
+  /* 确保自己居中 */
+  margin: auto;
+}
+
+.text_7 {
+  margin-left: 160rpx;
+
+  align-self: center;
+  /* 确保自己居中 */
+}
+
+.text_8 {
+  word-break: break-all;
+  opacity: 1;
+  font-family: miaozi;
+  font-size: 70rpx;
+}
+
+.text_9 {
+  word-break: break-all;
+  opacity: 0.6;
+  width: 44rpx;
+}
+
+.text_10 {
+  word-break: break-all;
+  opacity: 0.6;
+  width: 76rpx;
+}
+
+.section_3 {
+  margin-left: 44rpx;
+  margin-top: -8rpx;
+  padding: 18rpx;
+  background-color: #1e1f2c;
+  border-radius: 30rpx;
+}
+
+.image-wrapper {
+  padding: 16rpx 0;
+  background-color: #282b39;
+  border-radius: 16rpx;
+  width: 108rpx;
+  height: 108rpx;
+}
+
+.image_12 {
+  width: 74rpx;
+  height: 74rpx;
+}
+
+.group_5 {
+  margin-top: 20rpx;
+}
+
+.text_11 {
+  font-weight: 700;
+  line-height: 42rpx;
+  width: 200rpx;
+}
+
+.view {
+  margin-top: 72rpx;
+}
+
+.group_6 {
+  padding-bottom: 4rpx;
+}
+
+.font_6 {
+  font-size: 30rpx;
+  line-height: 21.78rpx;
+}
+
+.text_14 {
+  line-height: 21.62rpx;
+}
+
+.font {
+  font-size: 40rpx;
+  line-height: 29.22rpx;
+  font-weight: 900;
+}
+
+.text_6 {
+  font-family: Source;
+  margin-left: 160rpx;
+  font-size: 32rpx;
+  margin-bottom: 25rpx;
+}
+
+.text_3 {
+  font-weight: 700;
+  line-height: 56rpx;
+  width: 214rpx;
+}
+
+.text_2 {
+  line-height: 30.8rpx;
+}
+
+.pos_6 {
+  position: absolute;
+  left: 45.3rpx;
+  top: 129.26rpx;
+}
+
+.text_13 {
+  line-height: 100rpx;
+  font-family: miaozi;
+  font-size: xx-large;
+}
+
+.text_15 {
+  line-height: 22.8rpx;
+}
+
+.section_4 {
+  margin-left: 144rpx;
+  background-color: #e7166b;
+  border-radius: 3rpx;
+  width: 16rpx;
+  height: 6rpx;
+}
+
+.grid {
+  display: inline-flex;
+  /* Adjusted for horizontal layout */
+}
+
+.grid-item_2 {
+  display: inline-block;
+  /* Inline-block for horizontal scrolling */
+  width: 80rpx;
+  /* Adjust width as needed */
+  height: 80rpx;
+  /* Adjust height as needed */
+  margin-right: 20rpx;
+  /* Space between items */
+  background-size: cover;
+  /* Cover the entire area */
+  position: relative;
+  /* For absolute positioned text */
+}
+
+.item-text {
+  position: absolute;
+  bottom: 10rpx;
+  /* Adjust according to need */
+  width: 100%;
+  text-align: center;
+  color: #000;
+  font-size: 24rpx;
+}
+
+.grid-item {
+  padding: 12rpx 0 158rpx;
+  border-radius: 30rpx;
+  background-image: url('https://ide.code.fun/api/image?token=65ee824beb5b55001133e845&name=b471ec7a9d6869a68aae36e90e563bb1.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.section_5 {
+  margin-right: 32rpx;
+  padding: 9rpx 12rpx;
+  background-color: #10101080;
+  border-radius: 20rpx;
+}
+
+.image_13 {
+  width: 20rpx;
+  height: 18.8rpx;
+}
+
+.font_5 {
+  font-size: 24rpx;
+  line-height: 17.54rpx;
+  color: #dbd3d3;
+}
+
+.text_12 {
+  line-height: 34rpx;
+  width: 256rpx;
+}
+
+.grid-item_2 {
+  padding: 12rpx 0 10rpx;
+  border-radius: 30rpx;
+  background-size: 85% 85%;
+  background-repeat: no-repeat;
+  padding-left: 10rpx;
+}
+
+.grid-item_3 {
+  padding: 12rpx 0 158rpx;
+  border-radius: 30rpx;
+  background-image: url('https://ide.code.fun/api/image?token=65ee824beb5b55001133e845&name=6588a91178a358674d444ed2215ae6b0.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.grid-item_4 {
+  padding: 12rpx 0 158rpx;
+  border-radius: 30rpx;
+  background-image: url('https://ide.code.fun/api/image?token=65ee824beb5b55001133e845&name=a5de7b0fc321e32dca23c0d421389e02.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.grid-item_5 {
+  padding: 12rpx 0 158rpx;
+  border-radius: 30rpx;
+  background-image: url('https://ide.code.fun/api/image?token=65ee824beb5b55001133e845&name=3a5b4eb7b2d9c69a66fc919ce6e14fd3.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.grid-item_6 {
+  padding: 12rpx 0 158rpx;
+  border-radius: 30rpx;
+  background-image: url('https://ide.code.fun/api/image?token=65ee824beb5b55001133e845&name=cbd570437dd5723c826772978a3eac5d.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.section_6 {
+  margin-top: -52rpx;
+  padding: 12rpx 48rpx 72rpx;
+  background-image: url('https://ide.code.fun/api/image?token=65ee824beb5b55001133e845&name=1180324ee7956ee3e6640ca1e8a414c3.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.group_7 {
+  margin-top: 42rpx;
+}
+
+.image_16 {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.image_17 {
+  width: 44rpx;
+  height: 32rpx;
+}
+
+.font_7 {
+  font-size: 20rpx;
+  font-family: Roboto;
+  line-height: 14.6rpx;
+}
+
+.text_16 {
+  line-height: 14.42rpx;
+}
+
+.image-wrapper_2 {
+  padding: 36rpx 0;
+  background-image: linear-gradient(310.3deg, #821ced 16.1%, #e7166b 84.7%);
+  border-radius: 50%;
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.image_14 {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.image_15 {
+  width: 42.02rpx;
+  height: 47.98rpx;
+}
+
+.text_17 {
+  line-height: 18.38rpx;
+}
+
+.text_18 {
+  line-height: 15.4rpx;
+}
+
+.character-bgm {
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: transparent;
+}
+
+.character {
+  z-index: 2;
+  background-repeat: no-repeat;
+  background-size: 99%;
+  background-color: transparent;
+}
+
+.head {
+  z-index: 4;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: transparent;
+}
+
+.body {
+  z-index: 3;
+  background-repeat: no-repeat;
+  background-size: 99%;
+  background-color: transparent;
+}
+
+.eye {
+  z-index: 5;
+  background-repeat: no-repeat;
+  background-size: 99%;
+  background-color: transparent;
+}
+
+.lefthand {
+  z-index: 2;
+  background-repeat: no-repeat;
+  background-size: 102%;
+  background-color: transparent;
+}
+
+.righthand {
+  z-index: 2;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: transparent;
+}
+
+.closet-detail {
+  background-repeat: no-repeat;
+  background-size: 99%;
+  background-color: transparent;
+}
+
+.closet-item_2 {
+  border-radius: 9px;
+  background-repeat: no-repeat;
+  background-size: 85%;
+  background-color: transparent;
+}
+.text{
+  font-size: 25rpx;
+  color: rgb(255, 255, 255);
+}
+.wooden{
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  z-index: 5;
+}
+.status2{
+  background-size: 100% 100%;
+  position: absolute;
+  z-index: 3;
+  opacity: 0.9;
+}
+.status3{
+  background-size: 100% 100%;
+  position: absolute;
+  z-index: 3;
+  opacity: 0.9;
+}
+.avterbgm{
+  z-index: 0;
+}
+.setting{
+  background-repeat: no-repeat;
+  background-size: 90%;
+}

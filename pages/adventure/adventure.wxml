@@ -1,0 +1,169 @@
+<!-- <navBar class="navBar">
+  <text>冒险</text>
+</navBar> -->
+<view class="cover" style="width: 750rpx; height: 1855rpx; display: block; box-sizing: border-box">
+  <view class="baiwu" bindtap="later" style="margin-top: 1400rpx; width: 750rpx; height: 691rpx; display: block; box-sizing: border-box">
+    <image class="lock" src="https://miimhub.com/taskUI/lock.png?e=1713452834&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:oxR98etEwwWuauF58LPTZzo-oxY=" style="position: relative; left: 280rpx; top: 195rpx; width: 100rpx; height: 107rpx; display: inline-block; box-sizing: border-box"></image>
+    <image class="main" src="https://miimhub.com/UI/baiwu.png?e=1713452859&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:Cs3yMRWVeVyY3hB1X4JAJnCPGxQ=" style="width: 498rpx; height: 602rpx; display: block; box-sizing: border-box; left: -89rpx; top: 1293rpx; position: absolute"></image>
+    <image class="main2" src="https://miimhub.com/UI/baiwu.png?e=1713452859&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:Cs3yMRWVeVyY3hB1X4JAJnCPGxQ=" style="width: 660rpx; height: 444rpx; display: inline-block; box-sizing: border-box; left: 154rpx; top: 1549rpx; position: absolute"></image>
+    <image class="main3" src="https://miimhub.com/UI/baiwu.png?e=1713452859&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:Cs3yMRWVeVyY3hB1X4JAJnCPGxQ=" style="width: 632rpx; height: 414rpx; display: block; box-sizing: border-box; left: -38rpx; top: 1262rpx; position: absolute"></image>
+    <image class="main4" src="https://miimhub.com/UI/baiwu.png?e=1713452859&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:Cs3yMRWVeVyY3hB1X4JAJnCPGxQ=" style="width: 498rpx; height: 444rpx; display: block; box-sizing: border-box; left: 323rpx; top: 1413rpx; position: absolute"></image>
+  </view>
+
+  <view id="Tutorial">
+    <view wx:if="{{showTutorial}}">
+      <view class="fontAll tutorial-overlay"></view>
+      <!-- 道具提示框位置 -->
+      <view wx:if="{{highlight === 'caiDan'}}" class="fontAll tutorial-message" style="top: 116rpx; right: {{caiDanRight}}rpx; width: 599rpx; height: 144rpx; display: block; box-sizing: border-box; left: 95rpx; position: fixed">
+        <image class="arrow1" src="https://miimhub.com/UI/arrow.png?e=1713453416&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:SEsF1CT_Z_yLX9qmv3ev15VZD8k=" style="width: 89rpx; height: 58rpx; display: block; box-sizing: border-box; left: 538rpx; top: -14rpx; position: absolute"></image>
+        <text>这是道具栏，完成任务会获得开启下一个任务的道具！</text>
+        <button class="next-step-btn" bindtap="nextStep" style="width: 123rpx; height: 58rpx; display: block; box-sizing: border-box; left: 192rpx; top: -46rpx; position: relative">下一步</button>
+      </view>
+
+      <!-- 建筑提示框位置 -->
+      <view wx:if="{{highlight === 'building'}}" class="fontAll tutorial-message" style="top: 576rpx; left: 89rpx; width: 611rpx; height: 81rpx; display: block; box-sizing: border-box; position: fixed">
+        <image class="arrow2" src="https://miimhub.com/UI/arrow.png?e=1713453416&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:SEsF1CT_Z_yLX9qmv3ev15VZD8k=" style="width: 89rpx; height: 58rpx; display: block; box-sizing: border-box; left: 314rpx; top: 60rpx; position: absolute"></image>
+        <text>建筑可点击进入主线任务！</text>
+        <button class="next-step-btn" bindtap="nextStep" style="width: 126rpx; height: 60rpx; display: block; box-sizing: border-box; left: 213rpx; top: -70rpx; position: relative">下一步</button>
+      </view>
+
+      <!-- 五天任务提示框位置 -->
+      <view wx:if="{{highlight === 'five'}}" class="fontAll tutorial-message" style="top: 839rpx; left: 58rpx; width: 234rpx; height: 294rpx; display: block; box-sizing: border-box; position: fixed">
+        <image class="arrow3" src="https://miimhub.com/UI/arrow.png?e=1713453416&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:SEsF1CT_Z_yLX9qmv3ev15VZD8k=" style="width: 89rpx; height: 58rpx; display: block; box-sizing: border-box; left: -55rpx; top: 264rpx; position: absolute"></image>
+        <text>三天开学准备打卡支线任务！没有足够的积分无法进入主线任务！</text>
+        <button class="next-step-btn" bindtap="nextStep" style="width: 154rpx; height: 55rpx; display: block; box-sizing: border-box; left: -4rpx; top: -21rpx; position: relative">下一步</button>
+      </view>
+
+      <!-- 积分提示框位置 -->
+      <view wx:if="{{highlight === 'score'}}" class="fontAll tutorial-message" style="top: 902rpx; left: 506rpx; width: 245rpx; height: 318rpx; display: block; box-sizing: border-box; position: fixed">
+        <image class="arrow4" src="https://miimhub.com/UI/arrow.png?e=1713453416&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:SEsF1CT_Z_yLX9qmv3ev15VZD8k=" style="position: absolute; left: -53rpx; top: 251rpx; width: 81rpx; height: 63rpx; display: block; box-sizing: border-box"></image>
+        <text>完成任务后获取的积分在这里显示，可以用积分来兑换礼品！</text>
+        <button class="next-step-btn" bindtap="nextStep">我知道了</button>
+      </view>
+
+    </view>
+  </view>
+
+  <view id="UI">
+    <view id="bottom-Bar-score">
+      <text style="width: 215rpx; height: 70rpx; position: fixed; left: 520rpx; top: 1239rpx; display: block; box-sizing: border-box" class="text-point fontAll">{{score}}</text>
+      <image class="point" src="https://miimhub.com/UI/point2.png?e=1713452969&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:G9iS8a6SU-_NpdN_adxRDOCcOCM=" style="width: 337rpx; height: 98rpx; display: block; box-sizing: border-box; left: 414rpx; top: 1227rpx; position: fixed"></image>
+    </view>
+
+
+    <view id="caiDan">
+      <navigator url="/pages/warehouse/warehouse" open-type="navigate">
+        <image class="menu-bar" src="https://miimhub.com/UI/menu-bar.png?e=1713453479&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:cbod_lSpmUuxMqQYC4CxNxYv_oQ=" style="position: fixed; width: 123rpx; height: 112rpx; display: block; box-sizing: border-box; left: 628rpx; top: 1rpx"></image>
+        <image class="menu" src="https://miimhub.com/UI/menu.png?e=1713453469&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:IbddV5K0QxKGuFpTGG-QqLoTXUQ=" style="position: fixed; left: 653rpx; top: 25rpx; width: 74rpx; height: 60rpx; display: block; box-sizing: border-box"></image>
+      </navigator>
+    </view>
+
+  </view>
+
+  <view id="rewardPopup" style="position: fixed; left: 1rpx; top: 1155rpx; z-index: 25; width: 128rpx; height: 838rpx; display: block; box-sizing: border-box">
+    <t-popup t-class="tblock fontAll" visible="{{rewardPopupVisible}}" bind:visible-change="onRewardPopupVisibleChange" placement="center">
+      <view class="block" style="background-image: url('{{rewardImage}}'); width: 618rpx; height: 553rpx; display: block; box-sizing: border-box; left: 20rpx; top: -14rpx; position: relative">
+        <view class="texting">
+          <view class="reward-container" style="width: 508rpx; height: 358rpx; display: block; box-sizing: border-box; left: 75rpx; top: 70rpx; position: absolute">
+            <view class="reward-title" style="width: 480rpx; height: 96rpx; display: block; box-sizing: border-box; position: relative; left: 32rpx; top: 62rpx">恭喜你完成任务！</view>
+            <view class="reward-content fontAll" style="position: absolute; left: 93rpx; top: 157rpx; width: 440rpx; height: 96rpx; display: block; box-sizing: border-box">你获得了 {{reward}} 积分！</view>
+            <button class="closeReward fontAll" bind:tap="closeReward" style="background-image: url('https://miimhub.com/taskUI/confirm.png?e=1713453008&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:kQ884m3cdQcEWNhCPTjkmV2hSqo='); width: 182rpx; height: 117rpx; display: block; box-sizing: border-box; left: -35rpx; top: 157rpx; position: relative">确认</button>
+          </view>
+        </view>
+      </view>
+    </t-popup>
+  </view>
+  <view id="fiveDay" style="position: fixed; left: 1rpx; top: 1155rpx; z-index: 25; width: 128rpx; height: 838rpx; display: block; box-sizing: border-box">
+    <t-popup t-class="tblock fontAll" visible="{{visible}}" bind:visible-change="onVisibleChange" placement="center">
+      <view class="block" style="background-image: url('{{taskImage}}'); width: 660rpx; height: 539rpx; display: block; box-sizing: border-box; left: 1rpx; top: -49rpx; position: relative">
+        <view class="texting">
+          <view class="task-container" style="width: 512rpx; height: 391rpx; display: block; box-sizing: border-box; left: 75rpx; top: 70rpx; position: absolute">
+            <view class="task-title" style="width: 464rpx; height: 96rpx; display: block; box-sizing: border-box; position: relative; left: 23rpx; top: -37rpx">{{currentTask.title}}</view>
+            <view class="task-content fontAll" style="position: absolute; left: 254rpx; top: 252rpx; width: 494rpx; height: 280rpx; display: block; box-sizing: border-box">{{currentTask.content}}</view>
+            <button class="gotoFinish fontAll" bind:tap="goforit" style="background-image: url('https://miimhub.com/taskUI/confirm.png?e=1713453008&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:kQ884m3cdQcEWNhCPTjkmV2hSqo='); width: 152rpx; height: 96rpx; display: block; box-sizing: border-box; left: -1rpx; top: 147rpx; position: relative">goforit</button>
+          </view>
+        </view>
+
+        <image style="width: 105rpx; height: 93rpx; display: block; box-sizing: border-box; left: 262rpx; top: 539rpx; position: absolute" class="close-btn fontAll" bind:tap="onClose" src="https://miimhub.com/UI/close.png?e=1713453516&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:GlJ07yqZVSGqotmk13Mh2yX_mGw=" />
+      </view>
+    </t-popup>
+    <t-button class="task-five fontAll" block size="large" variant="outline" theme="primary" bind:tap="handlePopup">三天打卡</t-button>
+    <image class="five fontAll" style="position: fixed; top: 1135rpx; width: 144rpx; height: 161rpx; left: -2rpx" src="https://miimhub.com/UI/fiveDay.png?e=1713453445&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:1vRrW14RIx72243xIRBNEirzk9c=" />
+  </view>
+
+
+  <navigator url="/pages/buildings/zi/zi" open-type="navigate">
+    <button class="task-zi fontAll" style="position: absolute; left: 1rpx; top: 2rpx; width: 405rpx; height: 311rpx; display: block; box-sizing: border-box"></button>
+  </navigator>
+  <view id="is-house">
+    <image class="bankuai" src="https://miimhub.com/UI/bankuai.png?e=1713453072&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:fCVV2nY754cC0Yax0jnVKgFzUWg=" style="position: absolute; left: 114rpx; top: -121rpx; width: 744rpx; height: 503rpx; display: block; box-sizing: border-box"></image>
+    <image class="zi" src="https://miimhub.com/UI/zi.png?e=1713453084&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:dTU-Vy1E1QJ3yBi8MW--U4TcZQM=" style="position: absolute; left: 674rpx; top: 30rpx; width: 330rpx; height: 234rpx; display: block; box-sizing: border-box"></image>
+    <image class="zi" src="https://miimhub.com/UI/zi.png?e=1713453084&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:dTU-Vy1E1QJ3yBi8MW--U4TcZQM=" style="position: absolute; left: -121rpx; top: 168rpx; width: 360rpx; height: 234rpx; display: block; box-sizing: border-box"></image>
+    <image class="zi" src="https://miimhub.com/UI/zi.png?e=1713453084&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:dTU-Vy1E1QJ3yBi8MW--U4TcZQM=" style="position: absolute; left: -194rpx; top: 219rpx; width: 360rpx; height: 234rpx; display: block; box-sizing: border-box"></image>
+    <image class="dian" src="https://miimhub.com/UI/dian.png?e=1713453100&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:yGd0OHokCx7WoNur6HWMKQZ9HDk=" style="position: absolute; left: -88rpx; top: 345rpx; width: 253rpx; height: 161rpx; display: block; box-sizing: border-box"></image>
+    <image class="dian2" src="https://miimhub.com/UI/dian2.png?e=1713453108&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:j9UR3QA6wdnD44-JZB0LnLG1c74=" style="position: absolute; left: 81rpx; top: 323rpx; width: 117rpx; height: 95rpx; display: block; box-sizing: border-box"></image>
+    <image class="shushe2" src="https://miimhub.com/UI/sushe2.png?e=1713453120&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:RtClFTP5UXj-IOS72ZLl42-32Q8=" style="position: absolute; left: -201rpx; top: -60rpx; width: 519rpx; height: 323rpx; display: block; box-sizing: border-box"></image>
+    <image class="shushe2" src="https://miimhub.com/UI/sushe2.png?e=1713453120&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:RtClFTP5UXj-IOS72ZLl42-32Q8=" style="position: absolute; left: -28rpx; top: -193rpx; width: 519rpx; height: 323rpx; display: block; box-sizing: border-box"></image>
+  </view>
+
+  <view id="is-water">
+    <image class="water" src="https://miimhub.com/UI/water.png?e=1713453135&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:TmS6K_czctatDfiPkTfAxToxOns=" style="position: absolute; left: -86rpx; top: 548rpx; width: 696rpx; height: 604rpx; display: block; box-sizing: border-box"></image>
+    <image class="water2" src="https://miimhub.com/UI/water.png?e=1713453135&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:TmS6K_czctatDfiPkTfAxToxOns=" style="position: absolute; left: 491rpx; top: 456rpx; width: 360rpx; height: 273rpx; display: block; box-sizing: border-box"></image>
+    <image class="water3" src="https://miimhub.com/UI/water.png?e=1713453135&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:TmS6K_czctatDfiPkTfAxToxOns=" style="position: absolute; left: 515rpx; top: 301rpx; width: 360rpx; height: 294rpx; display: block; box-sizing: border-box"></image>
+  </view>
+
+  <navigator url="/pages/buildings/yi/yi" open-type="navigate">
+    <button class="task-yi" style="position: absolute; left: 501rpx; top: 928rpx; width: 250rpx; height: 229rpx; display: block; box-sizing: border-box"></button>
+  </navigator>
+  <view id="is-yifulou">
+    <image class="yi1" src="https://miimhub.com/UI/yi1.png?e=1713453153&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:DtmtbRnGyveFXX2j1NvQQp_mfPA=" style="position: absolute; left: 491rpx; top: 777rpx; width: 330rpx; height: 365rpx; display: block; box-sizing: border-box"></image>
+    <image class="yi2" src="https://miimhub.com/UI/yi2.png?e=1713453162&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:SiukezVEA8yg4QdfvQdKNy4cjaM=" style="position: absolute; left: 580rpx; top: 1004rpx; width: 330rpx; height: 323rpx; display: block; box-sizing: border-box"></image>
+    <image class="b1" src="https://miimhub.com/UI/b1.png?e=1713453180&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:Za1HIwGf3A8vkO1-7LuDI_KGgD8=" style="position: absolute; left: 463rpx; top: 902rpx; width: 330rpx; height: 323rpx; display: block; box-sizing: border-box"></image>
+    <image class="b2" src="https://miimhub.com/UI/b2.png?e=1713453191&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:U1q8kdo_u8yAQ0TTwcdhsBBPywY=" style="position: absolute; left: 410rpx; top: 917rpx; width: 304rpx; height: 234rpx; display: block; box-sizing: border-box"></image>
+    <image class="b3" src="https://miimhub.com/UI/b1.png?e=1713453180&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:Za1HIwGf3A8vkO1-7LuDI_KGgD8=" style="position: absolute; left: 448rpx; top: 902rpx; width: 330rpx; height: 323rpx; display: block; box-sizing: border-box"></image>
+  </view>
+
+  <navigator url="/pages/buildings/shitang/shitang" open-type="navigate">
+    <button class="task-shitang" style="position: absolute; left: 105rpx; top: 431rpx; width: 271rpx; height: 178rpx; display: block; box-sizing: border-box"></button>
+  </navigator>
+  <view id="is-shitang">
+    <image class="food" src="https://miimhub.com/UI/food.png?e=1713453202&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:3gbw0BFEEajL0UItL0553nVqnoA=" style="position: absolute; left: -362rpx; top: 1064rpx; width: 594rpx; height: 396rpx; display: block; box-sizing: border-box"></image>
+    <image class="food" src="https://miimhub.com/UI/food.png?e=1713453202&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:3gbw0BFEEajL0UItL0553nVqnoA=" style="position: absolute; left: -103rpx; top: 1228rpx; width: 594rpx; height: 396rpx; display: block; box-sizing: border-box"></image>
+    <image class="food" src="https://miimhub.com/UI/food.png?e=1713453202&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:3gbw0BFEEajL0UItL0553nVqnoA=" style="position: absolute; left: -131rpx; top: 337rpx; width: 705rpx; height: 464rpx; display: block; box-sizing: border-box"></image>
+  </view>
+
+  <navigator url="/pages/buildings/bo/bo" open-type="navigate">
+    <button class="task-bo" style="position: absolute; left: 358rpx; top: 653rpx; width: 245rpx; height: 178rpx; display: block; box-sizing: border-box"></button>
+  </navigator>
+  <view id="is-boxuelou">
+    <image class="school" src="https://miimhub.com/UI/school.png?e=1713453223&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:FLvGRaSUcRZCYDgVrekA24trUiA=" style="position: absolute; left: 150rpx; top: 562rpx; width: 698rpx; height: 435rpx; display: block; box-sizing: border-box"></image>
+  </view>
+
+  <navigator url="/pages/buildings/gym/gym" open-type="navigate">
+    <button class="task-gym" style="position: absolute; left: 480rpx; top: 182rpx; width: 248rpx; height: 220rpx; display: block; box-sizing: border-box"></button>
+  </navigator>
+  <view id="is-gym">
+    <image class="gym" src="https://miimhub.com/UI/gym.png?e=1713453236&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:wQr5h6tx_tnEQYOkp5xCEl6_Ki8=" style="position: absolute; left: 288rpx; top: 28rpx; width: 750rpx; height: 471rpx; display: block; box-sizing: border-box"></image>
+    <image class="gym2" src="https://miimhub.com/UI/gym2.png?e=1713453243&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:ipu43LNmSEJEWdXAzFQYm2v5u5k=" style="position: absolute; left: 595rpx; top: 219rpx; width: 717rpx; height: 517rpx; display: block; box-sizing: border-box"></image>
+    <image class="gym3" src="https://miimhub.com/UI/gym2.png?e=1713453243&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:ipu43LNmSEJEWdXAzFQYm2v5u5k=" style="position: absolute; left: 126rpx; top: 1324rpx; width: 750rpx; height: 538rpx; display: block; box-sizing: border-box"></image>
+  </view>
+
+  <view id="is-road">
+    <image class="road1" src="https://miimhub.com/UI/road1.png?e=1713453264&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:BHl6cN-NVqn9VW6ALCHK1Z1Qm18=" style="position: absolute; left: 205rpx; top: 1195rpx; width: 750rpx; height: 484rpx; display: block; box-sizing: border-box"></image>
+    <image class="road1" src="https://miimhub.com/UI/road1.png?e=1713453264&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:BHl6cN-NVqn9VW6ALCHK1Z1Qm18=" style="position: absolute; left: -389rpx; top: 808rpx; width: 750rpx; height: 484rpx; display: block; box-sizing: border-box"></image>
+    <image class="road1" src="https://miimhub.com/UI/road1.png?e=1713453264&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:BHl6cN-NVqn9VW6ALCHK1Z1Qm18=" style="position: absolute; left: 205rpx; top: 1195rpx; width: 750rpx; height: 484rpx; display: block; box-sizing: border-box"></image>
+    <image class="road2" src="https://miimhub.com/UI/road2.png?e=1713453278&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:qhf6SjfdcGfpmKztB8tsPm-Y4D8=" style="position: absolute; left: -124rpx; top: 116rpx; width: 695rpx; height: 426rpx; display: block; box-sizing: border-box"></image>
+    <image class="road3" src="https://miimhub.com/UI/road3.png?e=1713453288&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:xlLMD0GBlNPSHc85B1_ykUobVTM=" style="width: 437rpx; height: 267rpx; display: block; box-sizing: border-box; left: 519rpx; top: -56rpx; position: absolute"></image>
+    <image class="road4" src="https://miimhub.com/UI/road4.png?e=1713453297&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:cru5eftKucLz6kTqI2Oh3ODKO1s=" style="width: 515rpx; height: 294rpx; display: block; box-sizing: border-box; left: 281rpx; top: 344rpx; position: absolute"></image>
+    <image class="road44" src="https://miimhub.com/UI/road4.png?e=1713453297&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:cru5eftKucLz6kTqI2Oh3ODKO1s=" style="width: 414rpx; height: 267rpx; display: block; box-sizing: border-box; left: 163rpx; top: 775rpx; position: absolute"></image>
+    <image class="road5" src="https://miimhub.com/UI/road5.png?e=1713453307&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:aSjycHLz-yrRW4JUpwOXXJKEhOU=" style="position: absolute; left: 538rpx; top: 356rpx; width: 283rpx; height: 182rpx; display: block; box-sizing: border-box"></image>
+    <image class="n1" src="https://miimhub.com/UI/1.png?e=1713453322&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:BeIQX0Un9fC4Q5z5VkvpPK4_JcY=" style="position: absolute; left: 362rpx; top: 1141rpx; width: 330rpx; height: 234rpx; display: block; box-sizing: border-box"></image>
+    <image class="n3" src="https://miimhub.com/UI/3.png?e=1713453335&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:erJmDg0rVc1EowMdn7wa57li4Ew=" style="position: absolute; left: 433rpx; top: 1195rpx; width: 360rpx; height: 234rpx; display: block; box-sizing: border-box"></image>
+    <image class="n3" src="https://miimhub.com/UI/3.png?e=1713453335&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:erJmDg0rVc1EowMdn7wa57li4Ew=" style="position: absolute; left: 587rpx; top: 1282rpx; width: 360rpx; height: 234rpx; display: block; box-sizing: border-box"></image>
+    <image class="n1" src="https://miimhub.com/UI/1.png?e=1713453322&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:BeIQX0Un9fC4Q5z5VkvpPK4_JcY=" style="position: absolute; left: -164rpx; top: 808rpx; width: 330rpx; height: 234rpx; display: block; box-sizing: border-box"></image>
+    <image class="n3" src="https://miimhub.com/UI/3.png?e=1713453335&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:erJmDg0rVc1EowMdn7wa57li4Ew=" style="position: absolute; left: -55rpx; top: 880rpx; width: 330rpx; height: 234rpx; display: block; box-sizing: border-box"></image>
+    <image class="n4" src="https://miimhub.com/UI/4.png?e=1713453351&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:dUqv_Fk2EaIAq6Qehk0H2PTgESY=" style="position: absolute; left: 52rpx; top: 969rpx; width: 360rpx; height: 234rpx; display: block; box-sizing: border-box"></image>
+    <image class="n2" src="https://miimhub.com/UI/2.png?e=1713453358&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:sadGGIp-osynkqgzjdysIgkwNSw=" style="position: absolute; left: 229rpx; top: 1049rpx; width: 330rpx; height: 234rpx; display: block; box-sizing: border-box"></image>
+  </view>
+
+</view>

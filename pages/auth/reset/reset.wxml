@@ -1,0 +1,40 @@
+<t-message id="t-message" />
+<view class="container">
+  <view class="bgm" style="position: absolute; left: -144rpx; top: 23rpx; width: 1938rpx; height: 1410rpx; display: block; box-sizing: border-box">
+    <image class="bgmImage" src="https://miimhub.com/login/loginbgm1.jpg?e=1713453810&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:FiQtMQWF_biPqLvPGmVJTSAy588=" style="position: relative; left: -969rpx; top: -805rpx; width: 1943rpx; height: 2930rpx; display: inline-block; box-sizing: border-box"></image>
+  </view>
+  <view class="form-box" style="position: relative; left: 89rpx; top: -51rpx; width: 581rpx; height: 801rpx; display: flex; box-sizing: border-box">
+    <!-- <van-cell-group> -->
+    <view class="form-item input" style="background-image: url('https://miimhub.com/login/bgm.png?e=1713453817&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:Zxx0Kla_7EZU1I1DcO3xaKI3usQ='); width: 630rpx; height: 149rpx; display: block; box-sizing: border-box; position: absolute; left: -7rpx; top: 20rpx">
+      <!-- <input class="mobile" value="{{email}}" bindinput="bindEmailInput" placeholder="邮箱" />
+      <image wx:if="{{ email.length > 0 }}" id="clear-mobile" class="clear" src="/static/images/clear_input.png" catchtap="clearInput"></image> -->
+      <t-input class="mail" value="{{email}}" center clearable label="邮箱" bind:blur="bindEmailInput" placeholder="请输入邮箱"></t-input>
+    </view>
+
+    <view class="form-item-code">
+      <view class="form-item code-item input" style="background-image: url('https://miimhub.com/login/bgm.png?e=1713453817&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:Zxx0Kla_7EZU1I1DcO3xaKI3usQ='); width: 426rpx; height: 154rpx; display: block; box-sizing: border-box; position: absolute; left: 4rpx; top: 134rpx">
+        <!-- <input class="code" value="{{code}}" bindinput="bindCodeInput" placeholder="验证码" />
+        <image class="clear" id="clear-code" wx:if="{{ code.length > 0 }}" src="/static/images/clear_input.png" catchtap="clearInput"></image> -->
+        <t-input class="code" value="{{code}}" center clearable label="验证码" bind:blur="bindCodeInput" placeholder="请输入验证码"></t-input>
+      </view>
+      <view class="get" style="background-image: url('https://miimhub.com/login/bgm.png?e=1713453817&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:Zxx0Kla_7EZU1I1DcO3xaKI3usQ='); position: relative; left: 400rpx; top: 209rpx; width: 198rpx; height: 154rpx; display: block; box-sizing: border-box">
+        <t-button theme="default" shape="round" class="code-btn get-code" bindtap="sendCode">获取验证码</t-button>
+      </view>
+
+    </view>
+
+    <view class="form-item input" style="background-image: url('https://miimhub.com/login/bgm.png?e=1713453817&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:Zxx0Kla_7EZU1I1DcO3xaKI3usQ='); width: 588rpx; height: 150rpx; display: block; box-sizing: border-box; position: absolute; left: 14rpx; top: 245rpx">
+      <!-- <input class="password" value="{{password}}" password bindinput="bindPasswordInput" placeholder="密码" />
+      <image class="clear" id="clear-password" wx:if="{{ password.length > 0 }}" src="/static/images/clear_input.png" catchtap="clearInput"></image> -->
+      <t-input class="password" value="{{password}}" center clearable type="password" label="密码" bind:blur="bindPasswordInput" placeholder="请输入密码"></t-input>
+    </view>
+
+    <view class="form-item input " style="background-image: url('https://miimhub.com/login/bgm.png?e=1713453817&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:Zxx0Kla_7EZU1I1DcO3xaKI3usQ='); width: 693rpx; height: 170rpx; display: block; box-sizing: border-box; position: absolute; left: -7rpx; top: 351rpx">
+      <!-- <input class="password" value="{{confirmPassword}}" password bindinput="bindConfirmPasswordInput" placeholder="确认密码" />
+      <image class="clear" id="clear-confirm-password" wx:if="{{ confirmPassword.length > 0 }}" src="/static/images/clear_input.png" catchtap="clearInput"></image> -->
+      <t-input class="confirm-password"value="{{confirmPassword}}" center clearable type="password" label="确认密码" bind:blur="bindConfirmPasswordInput" placeholder="请输入确认密码"></t-input>
+    </view>
+    <!-- </van-cell-group> -->
+    <t-button type="default" shape="round" size="large" class="reset-btn reset" style="background-image: url('https://miimhub.com/login/login-sure2.png?e=1713453836&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:5xOg_mvNAlXGNVZCj1NfkPdylPI=');" bindtap="startReset">重置</t-button>
+  </view>
+</view>

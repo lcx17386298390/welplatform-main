@@ -1,0 +1,189 @@
+/* 页面整体布局，居中显示 */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* 使用视口高度 */
+  padding: 0;
+  margin: 0;
+  font-family: Source;
+}
+
+.bgm {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* 表单盒子样式，确保内容居中显示 */
+.form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  /* 表单盒子宽度 */
+  max-width: 600rpx;
+  /* 控制表单的最大宽度，保持内容居中 */
+  margin-top: 96rpx;
+  /* 调整上边距 */
+  padding: 0;
+  /* 移除内边距 */
+  background: transparent;
+  /* 透明背景 */
+  position: relative;
+}
+
+/* 所有表单项样式 */
+.form-item {
+  background: transparent;
+  /* 透明背景，统一设置 */
+  margin-bottom: 36rpx;
+  /* 底部外边距，统一设置 */
+  width: 100%;
+  /* 宽度统一设置 */
+}
+
+/* 所有输入框样式 */
+.form-item t-input {
+  --input-placeholder-color: #A9A9A9;
+  /* 统一占位符颜色 */
+  --input-label-color: #8B4513;
+  /* 统一标签颜色 */
+  --input-border-color: transparent;
+  /* 移除边框 */
+  border: none;
+}
+
+.input {
+  margin-top: 50rpx;
+  margin-left: 10rpx;
+  text-align: center;
+  --td-input-bg-color: transparent;
+  --td-input-border-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 99% 190%;
+  position: absolute;
+}
+
+.input2 {
+  margin-top: 50rpx;
+  margin-left: 10rpx;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: 110% 100%;
+  position: absolute;
+  z-index: 1;
+}
+.input3{
+  padding-bottom: 30rpx;
+}
+/* 获取验证码区域样式 */
+.form-item-code {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 500rpx;
+}
+
+/* 验证码输入框样式 */
+.form-item-code .form-item {
+  flex: 1;
+  /* 输入框占据可用空间 */
+  margin-right: 20rpx;
+  /* 输入框与按钮间距 */
+}
+
+/* 获取验证码按钮样式 */
+.form-item-code .code-btn {
+  padding-left: -20rpx;
+  /* 按钮垂直内边距 */
+  --td-button-default-bg-color: transparent;
+  /* 按钮背景色 */
+  font-size: 32rpx;
+  /* 按钮字体大小 */
+  --td-button-default-border-color: transparent;
+  /* 按钮背景色 */
+  --td-button-default-active-bg-color: transparent;
+  --td-button-default-active-border-color: transparent;
+  color: #000000;
+  /* Set the text color to black */
+  flex-shrink: 0;
+  /* 防止按钮缩小 */
+  height: 100rpx;
+  /* 按钮高度，与输入框保持一致 */
+  z-index: 1;
+}
+.get{
+  background-position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100% 110%;
+  transform: rotate(-10deg);
+  z-index: 1;
+}
+/* .form-item-code .code-btn .register-btn .form-item .input :active {
+  transform: scale(1.2);
+  filter: brightness(0.8);
+} */
+.code-btn{
+  left: -20rpx;
+  margin-top: 47rpx;
+  z-index: 0;
+  transform: rotate(10deg);
+}
+.code-btn:active{
+  transform: scale(1.2);
+}
+/* 注册按钮样式 */
+.register-btn {
+  height: 88rpx;
+  /* 按钮高度，与输入框保持一致 */
+  line-height: 88rpx;
+  /* 行高，确保文本垂直居中 */
+  font-size: 35rpx;
+  /* 圆角大小 */
+  margin-top: 720rpx;
+  left: 65rpx;
+  /* 与验证码区域的距离 */
+  color: #000000;
+  /* Set the text color to black */
+  width: 100%;
+  /* 宽度设置为与输入框相同 */
+  --td-button-default-active-bg-color: transparent;
+  --td-button-default-active-border-color: transparent;
+  --td-button-default-bg-color: transparent;
+  --td-button-default-border-color: transparent;
+  background-size: 100% 115%;
+}
+.register-btn:active{
+  transform: scale(1.1);
+}
+/* Adjust the size of the "验证码" input and "获取验证码" button */
+.form-item-code {
+  display: flex;
+}
+
+.form-item-code .code-item {
+  /* Take up the remaining space, but leave room for the button */
+  flex-grow: 1;
+  margin-right: 20rpx;
+  /* Adjust this as needed */
+}
+.code-item{
+  width: 50%;
+}
+.user{
+  left: 35rpx;
+}
+.password{
+  padding-left: 20rpx;
+  left: 60rpx;
+}
+.mail{
+  left: 59rpx;
+}
+.confirm-password{
+  padding-left: 20rpx;
+
+}

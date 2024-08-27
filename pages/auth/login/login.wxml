@@ -1,0 +1,17 @@
+<t-message id="t-message" />
+<t-toast id="t-toast" />
+<view class="container" style="position: relative; left: 0rpx; top: 2rpx; width: 750rpx; height: 1450rpx; display: flex; box-sizing: border-box">
+  <view class="bgm" style="position: absolute; left: -144rpx; top: 21rpx; width: 1038rpx; height: 1410rpx; display: block; box-sizing: border-box">
+    <image class="bgmImage" src="https://miimhub.com/login/loginbgm1.jpg?e=1713453734&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:htEUIxJ4gYqTj4gNLLMAuiVZ4Pg=" style="position: relative; left: 50rpx; top: -145rpx; height: 1699rpx; display: inline-block; box-sizing: border-box; width: 939rpx"></image>
+  </view>
+  <view class="login-box" style="width: 555rpx; height: 274rpx; display: block; position: relative; left: 1rpx; top: 137rpx; box-sizing: border-box">
+    <!-- <van-toast id="van-toast" /> -->
+    <t-button icon="logo-wechat" wx:if="{{canIUseGetUserProfile}}" theme="primary" shape="round" class="wx-login-btn" size="large" bindtap="getUserProfile" style="background-image: url('https://miimhub.com/login/login-sure2.png?e=1713453741&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:r7sstRkXdyNaj9f3yCUwLJd-pR4=');" block>
+      <text>微信登录</text>
+    </t-button>
+    <t-button icon="logo-wechat-stroke" wx:else open-type="getUserInfo" theme="primary" shape="round" class="wx-login-btn" size="large" bindgetuserinfo="wxLogin" style="background-image: url('https://miimhub.com/login/login-sure2.png?e=1713453741&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:r7sstRkXdyNaj9f3yCUwLJd-pR4='); position: absolute;" block><text>微信登录</text></t-button>
+    <t-button icon="member" theme="default" shape="round" size="large" class="account-login-btn" bindtap="accountLogin" block style="background-image: url('https://miimhub.com/login/login-sure2.png?e=1713453741&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:r7sstRkXdyNaj9f3yCUwLJd-pR4='); position: absolute; left: 7rpx; top: 48rpx">
+      <text>账号登录</text>
+    </t-button>
+  </view>
+</view>

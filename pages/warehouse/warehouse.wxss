@@ -1,0 +1,60 @@
+/* pages/warehouse/warehouse.wxss */
+.page-container {
+  position: absolute;
+  min-height: 500px;
+  /* 根据实际情况调整，确保即使内容不足时也有足够的高度 */
+}
+
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.item {
+  width: 40%;
+  scale: 82%;
+  /* 调整宽度以适应每行两个物品的布局 */
+  margin-bottom: 10px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.itemName {
+  font-size: 20px;
+  margin-left: -100px;
+  text-align: center;
+}
+
+.daoju {
+  z-index: 3;
+  scale: 80%;
+}
+
+.pagination {
+  position: absolute;
+  bottom: -60px;
+  /* 根据实际情况调整 */
+  left: 50%;
+  transform: translateX(-50%);
+  /* 使分页按钮水平居中 */
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+
+.page-btn {
+  margin: -20px 10px;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page-btn-next {
+  margin: -20px 10px;
+  border: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: transparent;
+}

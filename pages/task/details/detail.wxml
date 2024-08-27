@@ -1,0 +1,25 @@
+<!--pages/map/details.wxml-->
+<view class="container">
+  <view class="ui">
+    <view class="renwu" style="background-image: url('https://miimhub.com/character/cloud.png?e=1713454518&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:aynROoaBggwp2RUPOXjoatUF4JQ=');">
+    </view>
+    <image class="talk" src="https://miimhub.com/character/talk.png?e=1713454528&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:SV-VQS2OAF1xArrhGrmn49-mgT4=" style="width: 750rpx; height: 219rpx; display: inline-block; box-sizing: border-box; left: 1rpx; top: -189rpx; position: relative"></image>
+  </view>
+
+
+  <view class="content" style="width: 750rpx; height: 587rpx; display: block; box-sizing: border-box">
+    <view class="task-details" style="width: 750rpx; height: 796rpx; display: block; box-sizing: border-box; position: relative; left: -2rpx; top: -173rpx">
+      <view class="building" style="width: 712rpx; height: 145rpx; display: block; box-sizing: border-box; position: relative; left: 100rpx; top:15rpx">
+        <text class="buildingName">{{task.taskName}}</text>
+      </view>
+      <view class="description" style="width: 606rpx; height: 384rpx; display: block; box-sizing: border-box; position: relative; left: 74rpx; top: 42rpx">
+        <rich-text nodes="{{ task.content }}"></rich-text>
+      </view>
+    </view>
+    <!-- 4摄像头 3位置打卡，1普通打卡，2拍照打卡-->
+    <navigator class="signup-button" wx:if="{{status}}">已完成</navigator>
+    <navigator class="signup-button" url="../finish/finish?uid={{task.uid}}" wx:if="{{taskType.type == 1 || taskType.type == 2}}">我要打卡1/2</navigator>
+    <navigator class="signup-button" url="../location/location?uid={{task.uid}}" wx:if="{{taskType.type == 3}}">我要打卡3</navigator>
+    <navigator class="signup-button" url="../camera/camera?uid={{task.uid}}" wx:if="{{taskType.type == 4}}">我要打卡4</navigator>
+  </view>
+</view>

@@ -1,0 +1,19 @@
+# Windows
+[Dd]esktop.ini
+Thumbs.db
+$RECYCLE.BIN/
+.idea
+logs
+welplatform-wx-api/src/main/resources/application.yml
+app.js
+config.js
+welplatform-admin/ruoyi-admin/src/main/resources/application-druid.yml
+# macOS
+.DS_Store
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+
+# Node.js
+node_modules/

@@ -1,0 +1,169 @@
+/* 总体布局样式 */
+.building-page {
+  padding: 20rpx;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* 总任务进度条样式 */
+progress {
+  width: 90%;
+  margin: 25rpx auto;
+  border-radius: 10rpx;
+  background-color: #ced4e4; /* 进度条背景色 */
+  color: #07c160; /* 已完成进度条颜色 */
+}
+.task-li {
+  background: rgba(240, 229, 207, 0.9);
+  border: 1px solid #99785e;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: 3;
+  background-position: center center;
+  position: relative;
+  height: 410px;
+  width: 75%;
+  background-repeat: no-repeat;
+  top: 60px;
+  margin-top: 205rpx;
+  left: 58px;
+}
+/* 楼栋介绍样式 */
+.introduce {
+  margin-left: 100rpx;
+  margin-top: 310rpx;
+  z-index: 1;
+  background: rgba(240, 229, 207, 0.9);
+  border: 1px solid #c5a58a;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  width: 75%;
+  height: auto; /* 自适应内容高度 */
+  max-width: 350px;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow-y: auto; /* 允许垂直滚动 */
+}
+
+.introduce text {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  margin: 20rpx 40rpx;
+}
+
+.introduce view:nth-child(2) {
+  padding: 0 10rpx;
+}
+
+
+/* 单个任务项样式 */
+.task-item {
+  background-size: 100% 90%;
+  background-repeat: no-repeat; 
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+  position: relative;
+}
+
+.task-card text {
+  display: block; /* 使文本换行显示 */
+  font-size: 28rpx; /* 根据需要调整字体大小 */
+  line-height: 1.5; /* 调整行高 */
+  color: #333; /* 字体颜色，根据背景调整 */
+}
+
+/* 任务标题和内容描述样式 */
+.task-content {
+  z-index: 2;
+  font-size: 40rpx;
+  color: #333333; /* 标题颜色 */
+}
+
+.task-description {
+  z-index: 2;
+  font-size: 25rpx;
+  color: #666666; /* 描述颜色 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* 显示行数限制为3行 */
+  overflow: hidden;
+}
+
+.task-status{
+  display: none;
+}
+/* 查看详情按钮样式 */
+.view-detail-btn {
+  position: absolute;
+  right: 30rpx;
+  bottom: 30rpx;
+  padding: 10rpx 20rpx;
+  background-size: 100% 90%;
+  background-color: transparent;
+  background-repeat: no-repeat; 
+  color: #000000; /* 按钮文字颜色 */
+  border-color: transparent;
+  font-size: 28rpx;
+}
+.status{
+  z-index: 3;
+  background-color: transparent;
+  position: absolute;
+}
+.vine{
+  z-index: 1;
+  background-color: transparent;
+  position: absolute;
+}
+.bb{
+  z-index: -1;
+}
+
+.header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.title {
+  font-size: 24px;
+  color: #FFF;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.task-list {
+  flex: 1;
+  padding: 10px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border-bottom: 1px solid #ccc; 
+}
+
+.task-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.task-content {
+  flex: 1;
+}
+
+.task-name {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: bold;
+  margin-left: 20px;
+}

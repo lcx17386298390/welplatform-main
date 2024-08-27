@@ -1,0 +1,78 @@
+<view class="flex-col" style="width: 0rpx; height: 4rpx; display: flex; box-sizing: border-box">
+  <view class="bgm" style=" width: 1187rpx; height: 1800rpx; position: absolute; left: 0rpx; top: -269rpx; display: block; box-sizing: border-box">
+  </view>
+  <view class="flex-col section_2" style="width: 750rpx; height: 1338rpx; display: flex; box-sizing: border-box; left: 1rpx; top: 2rpx; position: absolute">
+    <view class="part1" style="width: 745rpx; height: 180rpx; display: block; box-sizing: border-box; position: relative; left: 2rpx; top: 16rpx">
+      <image class="avterbgm" src="https://miimhub.com/pageUI/avter.png?e=1713454668&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:0DkowBRwmFdNyV28C3FbaKskX-o=" style="position: absolute; width: 187rpx; height: 182rpx; display: block; box-sizing: border-box; left: 51rpx; top: -40rpx"></image>
+      <view class="flex-row justify-between group" style="width: 750rpx; height: 162rpx; display: flex; box-sizing: border-box; position: relative; left: -7rpx; top: -4rpx">
+        <view class="flex-row items-center" bindtap="goLogin" style="width: 662rpx; height: 185rpx; display: flex; box-sizing: border-box; position: relative; left: 26rpx; top: -35rpx">
+          <t-message id="t-message" />
+          <image style="position: relative; left: 2rpx; top: -11rpx; width: 156rpx; height: 147rpx; display: block; box-sizing: border-box" class="shrink-0 image_6" src="{{userInfo.avatarUrl}}" />
+          <view class="flex-col shrink-0 ml-15" style="width: 459rpx; height: 116rpx; display: flex; box-sizing: border-box; position: relative; left: -6rpx; top: -28rpx">
+            <text class="self-start font text_4" style="position: relative; left: 26rpx; top: 23rpx; width: 164rpx; height: 53rpx; display: block; box-sizing: border-box">{{userInfo.nickName || '请授权'}}</text>
+            <view class="setting" style="background-image: url('https://miimhub.com/UI/settings.png?e=1713454688&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:LKGUtMzpa77WOo2g9j7FucfeV3U='); width: 68rpx; height: 77rpx; display: block; box-sizing: border-box; position: relative; left: 381rpx; top: 0rpx" bindtap='goPages' data-url='/pages/ucenter/info/info'>
+              <text class='iconfont' bindtap='goPages' data-url='/pages/ucenter/info/info' style=" width: 72rpx; height: 67rpx; display: block; box-sizing: border-box; left: 388rpx; top: -5rpx; position: relative"></text>
+            </view>
+
+            <view class="flex-row items-center self-stretch" wx:if="{{hasAuth}}">
+              <text class="shrink-0 font_2 text_4">学号:{{userInfo.studentId}}</text>
+              <text class="font_2 text_5">专业:{{userInfo.major}}</text>
+            </view>
+          </view>
+        </view>
+        <!-- <image class="wooden" src="/static/images/pageUI/wooden.png" style="width: 700rpx; height: 62rpx; display: block; box-sizing: border-box; left: 46rpx; top: 133rpx; position: absolute"></image> -->
+      </view>
+    </view>
+    <image class="status2" src="https://miimhub.com/login/bgm2.png?e=1713454702&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:aVFISr1lvsNknV0IKMKW6d7_cy4=" style="width: 723rpx; height: 206rpx; display: flex; box-sizing: border-box; left: 28rpx; top: 257rpx; position: absolute"></image>
+    <image class="status3" src="https://miimhub.com/login/bgm2.png?e=1713454702&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:aVFISr1lvsNknV0IKMKW6d7_cy4=" style="width: 328rpx; height: 180rpx; display: flex; box-sizing: border-box; left: 396rpx; top: 268rpx; position: absolute"></image>
+    <image class="status3" src="https://miimhub.com/login/bgm2.png?e=1713454702&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:aVFISr1lvsNknV0IKMKW6d7_cy4=" style="width: 328rpx; height: 180rpx; display: flex; box-sizing: border-box; left: 54rpx; top: 270rpx; position: absolute"></image>
+    <view class="part2" style="width: 745rpx; height: 206rpx; display: flex; box-sizing: border-box; position: relative; left: 2rpx; top: -16rpx">
+      <view class="points-status-container" style="width: 677rpx; height: 159rpx; display: flex; position: relative; left: 1rpx; top: -1rpx; box-sizing: border-box">
+        <view class="points">
+          <text class="points-text" wx:if="{{hasAuth}}">{{userInfo.points}}</text>
+          <text class="points-text" wx:else style="width: 60rpx; height: 46rpx; display: block; box-sizing: border-box; position: relative; left: 0rpx; top: 17rpx">0</text>
+          <text class="points-label" style="position: relative; left: 0rpx; top: 8rpx">积分</text>
+        </view>
+        <view class="status" style="width: 112rpx; height: 142rpx; display: flex; box-sizing: border-box">
+
+          <text class="status-text" wx:if="{{hasAuth}}">已认证</text>
+          <text class="status-text" wx:else style="position: relative; left: 0rpx; top: 27rpx; width: 112rpx; height: 67rpx; display: block; box-sizing: border-box">未认证</text>
+          <text class="status-label" style="position: relative; left: 24rpx; top: 17rpx; width: 158rpx; height: 122rpx; display: block; box-sizing: border-box">状态</text>
+        </view>
+      </view>
+    </view>
+    <view class="part3" style="width: 686rpx; height: 145rpx; display: block; box-sizing: border-box; position: relative; left: 35rpx; top: -107rpx">
+      <scroll-view class="horizontal-scroll" scroll-x="true" style="background-image: url('https://miimhub.com/pageUI/bgm.png?e=1713454727&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:bb4xlyAvLXBtZnUfUNzssVvMwz4='); width: 749rpx; height: 234rpx; display: flex; box-sizing: border-box; position: relative; left: -35rpx; top: 49rpx">
+        <view class="grid" wx:for="{{MyMenus}}" wx:key="*this" style="position: relative; left: 18rpx; top: 1rpx; width: 198rpx; height: 168rpx; display: inline-flex; box-sizing: border-box">
+          <view class="grid-item_2" style="background-image: url({{item.pic}}); width: 177rpx; height: 159rpx; display: block; box-sizing: border-box; left: 1rpx; top: 27rpx; position: relative" bindtap='goPages' data-url='{{item.url}}'>
+            <text class="item-text text" style="position: absolute; left: -20rpx; top: 140rpx; width: 170rpx; height: 48rpx; display: block; box-sizing: border-box">{{item.name}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="part4" style="width: 744rpx; height: 557rpx; display: block; box-sizing: border-box; position: relative; left: 18rpx; top: 37rpx">
+      <view class="character-bgm" style="background-image: url('https://miimhub.com/character/characterBgm.png?e=1713454739&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:Qbz3vSVKVHUbDsi0rTlRmdUFsrI='); width: 382rpx; height: 534rpx; display: block; box-sizing: border-box; position: absolute; left: 57rpx; top: 67rpx"></view>
+      <view class="character" style="position: absolute; width: 328rpx; height: 398rpx; display: block; box-sizing: border-box; left: 83rpx; top: 78rpx">
+        <view class="head" style="background-image: url({{character.head}}); position: absolute; width: 217rpx; height: 213rpx; display: block; box-sizing: border-box; left: 55rpx; top: 42rpx"></view>
+
+        <view class="body" style="background-image: url({{character.body}}); position: absolute; width: 123rpx; height: 178rpx; display: block; box-sizing: border-box; left: 121rpx; top: 219rpx"></view>
+        <view class="eye" style="background-image: url({{character.eye}}); position: absolute; width: 123rpx; height: 53rpx; display: block; box-sizing: border-box; left: 131rpx; top: 156rpx"></view>
+        <view class="lefthand" style="background-image: url({{character.lefthand}}); position: absolute; width: 75rpx; height: 102rpx; display: block; box-sizing: border-box; left: 84rpx; top: 229rpx"></view>
+        <view class="righthand" style="background-image: url({{character.righthand}}); position: absolute; width: 75rpx; height: 102rpx; display: block; box-sizing: border-box; left: 201rpx; top: 220rpx"></view>
+      </view>
+      <view id="arrow">
+        <image src="https://miimhub.com/character/up.png?e=1713454751&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:UPjKxyuhd57PPC17rQ9HlCf1G_M=" style="position: absolute; left: 552rpx; top: 23rpx; width: 62rpx; height: 49rpx; display: block; box-sizing: border-box"></image>
+        <image src="https://miimhub.com/character/down.png?e=1713454764&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:QtsJjjJIXRCkvJgN-z-9CX4-VWs=" style="position: absolute; left: 552rpx; top: 534rpx; width: 62rpx; height: 52rpx; display: block; box-sizing: border-box"></image>
+      </view>
+      <view class="closet" style="position: absolute; width: 224rpx; height: 501rpx; display: block; box-sizing: border-box; left: 468rpx; top: 67rpx">
+        <scroll-view style="width: 224rpx; height: 464rpx; display: block; box-sizing: border-box; position: relative; left: 1rpx; top: -1rpx" scroll-y="true">
+          <view class="closet-detail" wx:for="{{closet}}" wx:key="index" style="background-image: url('https://miimhub.com/taskUI/item.png?e=1713454783&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:sNAOnxQBjL-C7lIT6rfxNGLJPA8='); width: 164rpx; height: 163rpx; display: block; box-sizing: border-box; position: relative; left: 21rpx; top: -2rpx">
+            <view class="closet-item_2" bindtap="changePart" data-part="{{item.part}}" data-pic="{{item.pic}}" style="background-image: url({{item.pic}}); width: 121rpx; height: 117rpx; display: block; box-sizing: border-box; left: 23rpx; top: 28rpx; position: relative">
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+
+    </view>
+  </view>
+</view>

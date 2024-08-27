@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-search": "tdesign-miniprogram/search/search",
+    "t-swiper": "tdesign-miniprogram/swiper/swiper"
+  },
+  "navigationBarTitleText": "首页",
+  "enablePullDownRefresh": false
+}

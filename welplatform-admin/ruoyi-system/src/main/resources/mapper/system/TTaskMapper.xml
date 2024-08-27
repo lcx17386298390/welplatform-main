@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.TTaskMapper">
+    
+    <resultMap type="TTask" id="TTaskResult">
+        <result property="uid"    column="uid"    />
+        <result property="taskName"    column="task_name"    />
+        <result property="taskDescription"    column="task_description"    />
+        <result property="points"    column="points"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="content"    column="content"    />
+        <result property="expireTime"    column="expire_time"    />
+        <result property="type"    column="type"    />
+        <result property="clickCount"    column="click_count"    />
+        <result property="adminUid"    column="admin_uid"    />
+        <result property="author"    column="author"    />
+        <result property="level"    column="level"    />
+        <result property="isPublish"    column="is_publish"    />
+        <result property="fileUid"    column="file_uid"    />
+    </resultMap>
+
+    <sql id="selectTTaskVo">
+        select uid, task_name, task_description, points, create_time, update_time, content, expire_time, type, click_count, admin_uid, author, level, is_publish, file_uid from t_task
+    </sql>
+
+    <select id="selectTTaskList" parameterType="TTask" resultMap="TTaskResult">
+        <include refid="selectTTaskVo"/>
+        <where>  
+            <if test="taskName != null  and taskName != ''"> and task_name like concat('%', #{taskName}, '%')</if>
+            <if test="taskDescription != null  and taskDescription != ''"> and task_description = #{taskDescription}</if>
+            <if test="points != null "> and points = #{points}</if>
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="expireTime != null "> and expire_time = #{expireTime}</if>
+            <if test="type != null "> and type = #{type}</if>
+            <if test="clickCount != null "> and click_count = #{clickCount}</if>
+            <if test="adminUid != null  and adminUid != ''"> and admin_uid = #{adminUid}</if>
+            <if test="author != null  and author != ''"> and author = #{author}</if>
+            <if test="level != null "> and level = #{level}</if>
+            <if test="isPublish != null  and isPublish != ''"> and is_publish = #{isPublish}</if>
+            <if test="fileUid != null  and fileUid != ''"> and file_uid = #{fileUid}</if>
+        </where>
+    </select>
+    
+    <select id="selectTTaskByUid" parameterType="String" resultMap="TTaskResult">
+        <include refid="selectTTaskVo"/>
+        where uid = #{uid}
+    </select>
+    <select id="selectTaskList" resultMap="TTaskResult">
+        select * from t_task
+    </select>
+
+    <insert id="insertTTask" parameterType="TTask">
+        insert into t_task
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">uid,</if>
+            <if test="taskName != null">task_name,</if>
+            <if test="taskDescription != null">task_description,</if>
+            <if test="points != null">points,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="content != null">content,</if>
+            <if test="expireTime != null">expire_time,</if>
+            <if test="type != null">type,</if>
+            <if test="clickCount != null">click_count,</if>
+            <if test="adminUid != null">admin_uid,</if>
+            <if test="author != null">author,</if>
+            <if test="level != null">level,</if>
+            <if test="isPublish != null">is_publish,</if>
+            <if test="fileUid != null">file_uid,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">#{uid},</if>
+            <if test="taskName != null">#{taskName},</if>
+            <if test="taskDescription != null">#{taskDescription},</if>
+            <if test="points != null">#{points},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="content != null">#{content},</if>
+            <if test="expireTime != null">#{expireTime},</if>
+            <if test="type != null">#{type},</if>
+            <if test="clickCount != null">#{clickCount},</if>
+            <if test="adminUid != null">#{adminUid},</if>
+            <if test="author != null">#{author},</if>
+            <if test="level != null">#{level},</if>
+            <if test="isPublish != null">#{isPublish},</if>
+            <if test="fileUid != null">#{fileUid},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTTask" parameterType="TTask">
+        update t_task
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="taskName != null">task_name = #{taskName},</if>
+            <if test="taskDescription != null">task_description = #{taskDescription},</if>
+            <if test="points != null">points = #{points},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="expireTime != null">expire_time = #{expireTime},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="clickCount != null">click_count = #{clickCount},</if>
+            <if test="adminUid != null">admin_uid = #{adminUid},</if>
+            <if test="author != null">author = #{author},</if>
+            <if test="level != null">level = #{level},</if>
+            <if test="isPublish != null">is_publish = #{isPublish},</if>
+            <if test="fileUid != null">file_uid = #{fileUid},</if>
+        </trim>
+        where uid = #{uid}
+    </update>
+
+    <delete id="deleteTTaskByUid" parameterType="String">
+        delete from t_task where uid = #{uid}
+    </delete>
+
+    <delete id="deleteTTaskByUids" parameterType="String">
+        delete from t_task where uid in 
+        <foreach item="uid" collection="array" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </delete>
+</mapper>

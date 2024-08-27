@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hgnuacm.wx.mapper.TUserTaskMapper">
+
+    <resultMap type="com.hgnuacm.wx.domain.TUserTask" id="TUserTaskResult">
+        <result property="uid"    column="uid"    />
+        <result property="userId"    column="user_id"    />
+        <result property="taskId"    column="task_id"    />
+        <result property="completeTime"    column="complete_time"    />
+        <result property="status"    column="status"    />
+    </resultMap>
+
+    <sql id="selectTUserTaskVo">
+        select uid, user_id, task_id, complete_time, status from t_user_task
+    </sql>
+
+
+
+    <select id="selectTUserTaskList" parameterType="com.hgnuacm.wx.domain.TUserTask" resultMap="TUserTaskResult">
+        <include refid="selectTUserTaskVo"/>
+        <where>
+            <if test="userId != null  and userId != ''"> and user_id = #{userId}</if>
+            <if test="taskId != null  and taskId != ''"> and task_id = #{taskId}</if>
+            <if test="completeTime != null "> and complete_time = #{completeTime}</if>
+            <if test="status != null "> and status = #{status}</if>
+        </where>
+    </select>
+
+    <select id="selectTUserTaskByUid" parameterType="String" resultMap="TUserTaskResult">
+        <include refid="selectTUserTaskVo"/>
+        where uid = #{uid}
+    </select>
+
+    <select id="selectTUserTaskListByUserId" parameterType="String" resultMap="TUserTaskResult">
+        <include refid="selectTUserTaskVo"></include>
+        <where>
+            user_id=#{userId}
+        </where>
+    </select>
+    <select id="getTUserTaskByTaskId" parameterType="String" resultMap="TUserTaskResult">
+        <include refid="selectTUserTaskVo"></include>
+        <where>
+            task_id=#{taskId}
+        </where>
+    </select>
+    <select id="getTUserTaskByTaskIdUserId" resultType="com.hgnuacm.wx.domain.TUserTask">
+        <include refid="selectTUserTaskVo"></include>
+        <where>
+            task_id=#{taskId} and user_id=#{userId}
+        </where>
+    </select>
+
+
+    <insert id="insertTUserTask" parameterType="com.hgnuacm.wx.domain.TUserTask">
+        insert into t_user_task
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">uid,</if>
+            <if test="userId != null and userId != ''">user_id,</if>
+            <if test="taskId != null and taskId != ''">task_id,</if>
+            <if test="completeTime != null">complete_time,</if>
+            <if test="status != null">status,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">#{uid},</if>
+            <if test="userId != null and userId != ''">#{userId},</if>
+            <if test="taskId != null and taskId != ''">#{taskId},</if>
+            <if test="completeTime != null">#{completeTime},</if>
+            <if test="status != null">#{status},</if>
+        </trim>
+    </insert>
+
+    <update id="updateTUserTask" parameterType="com.hgnuacm.wx.domain.TUserTask">
+        update t_user_task
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null and userId != ''">user_id = #{userId},</if>
+            <if test="taskId != null and taskId != ''">task_id = #{taskId},</if>
+            <if test="completeTime != null">complete_time = #{completeTime},</if>
+            <if test="status != null">status = #{status},</if>
+        </trim>
+        where uid = #{uid}
+    </update>
+
+    <delete id="deleteTUserTaskByUid" parameterType="String">
+        delete from t_user_task where uid = #{uid}
+    </delete>
+
+    <delete id="deleteTUserTaskByUids" parameterType="String">
+        delete from t_user_task where uid in
+        <foreach item="uid" collection="array" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </delete>
+</mapper>

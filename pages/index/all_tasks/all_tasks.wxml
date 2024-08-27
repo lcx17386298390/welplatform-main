@@ -1,0 +1,19 @@
+<view class="container" style= "background-image: url('https://miimhub.com/character/cBgm2.png?e=1713454257&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:wLj7CR-X7rCFkF3eL3C1pW-nGO4='); width: 750rpx; height: 1455rpx; display: flex; box-sizing: border-box">
+  <scroll-view class="task-list" scroll-y="true" style="width: 750rpx; height: 1446rpx; display: block; box-sizing: border-box">
+    <block wx:for="{{tasks}}" wx:key="id">
+      <view class="task-item" bindtap="viewDetails" data-id="{{item.task.uid}}">
+        <view>
+        <image class="task-icon" src="https://miimhub.com/UI/menu-bar.png?e=1713454279&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:4vnsLdhFw5NtyIvKKZWLlGKTSiU=" ></image>
+        </view>
+        <view class="task-content">
+          <text class="task-name">{{item.task.taskName}}</text>
+          <text class="task-desc">{{item.task.taskDescription}}</text>
+        </view>
+        <view class="task-action">
+          <view wx:if="{{item.status}}" class="completed pixel-font">已完成</view>
+          <view wx:else class="to-complete" bindtap="completeTask" data-id="{{item.id}}" >未完成</view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

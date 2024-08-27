@@ -1,0 +1,85 @@
+/* pages/map/details.wxss */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  /* Full height of the viewport */
+  padding-bottom: 120rpx;
+  /* Space for the signup button */
+  background-color: rgb(236, 236, 209);
+  z-index: -1;
+}
+.ui{
+  width: 100%;
+  height: 480rpx;
+}
+.renwu {
+  width: 100%;
+  height: 450rpx;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 40% 80%;
+  float: left;
+  z-index: 2;
+}
+.talk{
+  top: -200rpx;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  transform: scaleY(-1);
+  z-index: 3;
+}
+.swiper-image {
+  width: 100%;
+  object-fit: cover;
+  height: 30vh;
+}
+.content{
+  z-index: 1;
+}
+.task-details {
+  overflow-y: auto;
+  /* Enable scrolling for overflow content */
+}
+
+.building {
+  margin: 20rpx;
+}
+
+.buildingName {
+  font-size: 50rpx;
+  font-family: Source;
+  color: rgba(22, 21, 21, 0.986);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.description {
+  font-size: 35rpx;
+  font-family: Source;
+  line-height: 30px;
+  color: #000;
+  word-wrap: break-word;
+  padding: 0 20rpx;
+}
+
+.signup-button {
+  position: fixed;
+  /* Fixed position at the bottom */
+  bottom: 0;
+  /* At the very bottom */
+  left: 0;
+  width: 100%;
+  background-color: #AED581;
+  color: white;
+  font-size: 50rpx;
+  border: none;
+  border-radius: 25rpx;
+  padding: 15rpx 0;
+  text-align: center;
+  font-family: Source;
+}
+
+/* Make sure other content doesn't overlap with the button */

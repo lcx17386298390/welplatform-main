@@ -1,0 +1,79 @@
+<!--pages/ucenter/auth/auth.wxml-->
+<t-toast id="t-toast" />
+<t-message id="t-message" />
+<view class="container" style="width: 745rpx; height: 1438rpx; display: block; box-sizing: border-box; position: relative; left: -2rpx; top: 37rpx">
+  <view class="bgm" style="background-image: url('https://miimhub.com/login/login3.jpg?e=1713454643&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:7re6ll6ceQpmStRALs2bhisydTg='); width: 1553rpx; height: 2723rpx; position: absolute; left: -639rpx; top: -1225rpx; display: block; box-sizing: border-box">
+  </view>
+  <view class="form-box" style="width: 750rpx; height: 1399rpx; display: block; box-sizing: border-box; position: relative; left: -2rpx; top: -164rpx">
+    <view class="form-item input" style="background-image: url({{nameImage}}); position: relative; left: 11rpx; top: 117rpx; width: 712rpx; height: 163rpx; display: block; box-sizing: border-box">
+      <!-- <input class="username" value="{{name}}" bindinput="bindNameInput" placeholder="姓名"/>
+    		<image wx:if="{{ name.length > 0 }}" id="clear-username" class="clear" src="/static/images/clear_input.png" catchtap="clearInput"></image> -->
+      <t-input value="{{name}}" center class="username" clearable label="姓名" bind:blur="bindNameInput" placeholder="请输入姓名"></t-input>
+    </view>
+
+    <view class="form-item input2" style="background-image: url({{idImage}}); width: 712rpx; height: 163rpx; display: block; box-sizing: border-box; position: relative; left: 11rpx; top: 67rpx">
+      <!-- <input class="password" value="{{idCard}}"  bindinput="bindIdCardInput" placeholder="身份证号码"/>
+    		<image class="clear" id="clear-password" wx:if="{{ idCard.length > 0 }}" src="/static/images/clear_input.png" catchtap="clearInput"></image> -->
+      <t-input class="input2" value="{{idCard}}" center class="password" clearable label="身份证号" bind:blur="bindIdCardInput" placeholder="请输入身份证号"></t-input>
+    </view>
+
+    <form report-submit='true' onsubmit="uploadImgs" style="position: relative; left: 2rpx; top: -16rpx">
+      <view class="cu-bar " style="background-image: url({{textBar}}); position: relative; left: 6rpx; top: 133rpx; width: 709rpx; height: 100rpx; display: flex; box-sizing: border-box">
+        <view class="action text">
+          上传录取通知书照片
+        </view>
+        <view class="action">
+          {{imgList.length}}/{{imgMaxNumber}}
+        </view>
+      </view>
+
+      <view class="cu" style="background-image: url({{addPhoto}}); position: relative; left: 2rpx; top: 105rpx; width: 698rpx; height: 396rpx;display: flex; box-sizing: border-box">
+        <view style="position: relative; left: 23rpx; top: 8rpx; width: 453rpx; height: 312rpx; display: flex; flex-wrap: wrap; box-sizing: border-box">
+          <!-- 循环显示图片列表 -->
+          <view wx:for="{{imgList}}" wx:key="index" bindtap="ViewImage" data-url="{{imgList[index]}}" style="top: 40rpx; left: 30rpx; width: 100%; height: 100%; position: relative; padding: 0rpx; box-sizing: border-box;">
+            <image src="{{imgList[index]}}" mode="aspectFill" style="width: 100%; height: 100%;"></image>
+            <view catchtap="DelImg" data-index="{{index}}" style="position: absolute; right: 0rpx; top: 0rpx; width: 66rpx; height: 66rpx; border-radius: 20%; display: flex; align-items: center; justify-content: center; background-color: rgba(8, 8, 8, 0.712); ">
+              <text class="cuIcon-close" style="color: white;"></text>
+            </view>
+          </view>
+          <!-- 添加图片的按钮，只有当图片数量未达到上限时显示 -->
+          <view bindtap="ChooseImage" wx:if="{{imgList.length < imgMaxNumber}}" style=" display: flex; box-sizing: border-box; position: relative; left: 18rpx; top: 53rpx; width: 426rpx; height: 271rpx;">
+          </view>
+        </view>
+
+      </view>
+
+    </form>
+
+    <form report-submit='true' onsubmit="uploadAvatarImgs" style="position: relative; left: 2rpx; top: -27rpx; width: 300rpx; height: 217rpx; display: inline; box-sizing: content-box">
+      <view class="cu-bar margin-top" style="background-image: url({{textBar}}); position: relative; left: 6rpx; top: 130rpx; width: 698rpx; height: 96rpx; display: flex; box-sizing: border-box">
+        <view class="action text">
+          上传个人照片
+        </view>
+        <view class="action">
+          {{imgAvatarList.length}}/{{imgAvatarMaxNumber}}
+        </view>
+      </view>
+
+      <view class="cu" style="background-image: url({{addPhoto}}); position: relative; left: 2rpx; top: 105rpx; width: 698rpx; height: 396rpx; display: flex; box-sizing: border-box">
+        <view style="position: relative; left: 23rpx; top: 8rpx; width: 453rpx; height: 312rpx; display: flex; flex-wrap: wrap; box-sizing: border-box">
+          <view wx:for="{{imgAvatarList}}" wx:key="index" bindtap="ViewAvatarImage" data-url="{{imgAvatarList[index]}}" style="top: 40rpx; left: 30rpx; width: 100%; height: 100%; position: relative; padding: 0rpx; box-sizing: border-box;">
+            <image src='{{imgAvatarList[index]}}' mode='aspectFill' style="width: 100%; height: 100%;"></image>
+            <view catchtap="DelAvatarImg" data-index="{{index}}" style="position: absolute; right: 0rpx; top: 0rpx; width: 66rpx; height: 66rpx;border-radius: 20%; display: flex; align-items: center; justify-content: center; background-color: rgba(8, 8, 8, 0.712); ">
+              <text class="cuIcon-close" style="color: white;"></text>
+            </view>
+          </view>
+          <view bindtap="ChooseAvatarImage" wx:if="{{imgAvatarList.length<imgAvatarMaxNumber}}" style="position: relative; left: 18rpx; top: 53rpx; width: 426rpx; height: 271rpx; display: flex; box-sizing: border-box">
+          </view>
+        </view>
+      </view>
+    </form>
+
+    <!-- <form bindsubmit="authIdCard">
+      <view type="primary" class="login-btn" form-type="submit">提交</view>
+    </form> -->
+    <view style="position: relative; left: 121rpx; top: 72rpx; width: 424rpx; height: 163rpx; display: block; box-sizing: border-box">
+      <view class="login-btn" bind:tap="authIdCard" type="primary" style="background-image: url({{loginBtn}}); position: relative; left: 11rpx; top: -32rpx; width: 250rpx; height: 168rpx; display: block; box-sizing: border-box">提交</view>
+    </view>
+  </view>
+</view>

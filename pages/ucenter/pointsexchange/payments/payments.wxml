@@ -1,0 +1,82 @@
+<view class="flex-col page">
+  <form bindsubmit="formSubmit">
+    <view class="flex-col flex-1 group_4">
+      <view class="flex-col section">
+        <view class="group"></view>
+        <view class="mt-28 flex-col justify-start items-center group_2">
+          <text class="text_2">提交订单</text>
+        </view>
+      </view>
+      <view class="flex-col group_5">
+        <view class="flex-col justify-start items-center section_3">
+          <!-- <view class="flex-row group_6">
+          <image class="shrink-0 image_7" src="/static/images/pointsexchange/address.png" />
+          <text class="ml-10 font_2 text_5">新增收货地址</text>
+        </view> -->
+          <view class="flex-row group_6" bindtap="toggleInput">
+            <image class="shrink-0 image_7" src="{{showImage ? 'https://miimhub.com/pointsexchange/address.png?e=1713455260&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:JXABbZNl9kEnMBij4YDTop-F5gE=' : ''}}" />
+            <text class="ml-10 font_2 text_5">{{showImage ? '点击以添加地址' : ''}}</text>
+            <input wx:if="{{showInput}}" name="address" placeholder="请输入收货地址" catchtap="stopPropagation" />
+          </view>
+        </view>
+        <view class="mt-6 flex-col section_4">
+          <view class="flex-row justify-between items-center group_7">
+            <view class="flex-row items-center">
+              <view class="flex-col justify-start items-center shrink-0 image-wrapper">
+                <image class="image_8" src="{{gift.imageLink}}" />
+              </view>
+              <view class="ml-8 flex-col shrink-0 group_8">
+                <text class="self-stretch font_2 text_7">{{gift.giftName}}</text>
+                <text class="mt-4 self-start font_3 text_9">{{gift.description}}</text>
+                <view class="mt-4 flex-col justify-start items-center self-start text-wrapper_2">
+                  <text class="text_10">兑换</text>
+                </view>
+              </view>
+            </view>
+            <view class="flex-col items-end group_1">
+              <text class="text_8">{{gift.requiredPoints}}积分</text>
+              <text class="mt-30 font_3 text_11">x1</text>
+            </view>
+          </view>
+          <view class="flex-col group_9">
+            <view class="flex-row justify-between items-end group_10">
+              <view class="flex-col items-start">
+                <text class="font_2">积分折扣后价格</text>
+                <text class="font_2 text_12 mt-27">所需积分</text>
+              </view>
+              <view class="flex-col button group_11">
+                <text class="self-end font_4 text_6">￥{{gift.price}}</text>
+                <text class="mt-36 self-end font_4 text_6 text_13">{{gift.requiredPoints}}</text>
+              </view>
+            </view>
+            <view class="flex-col mt-27">
+              <view class="flex-row justify-between items-baseline group_12">
+                <text class="font_2 text_14">还需支付</text>
+                <text class="self-end font_4 text_6"></text>
+                <text class="font_4 text_6">￥{{gift.price}}</text>
+              </view>
+              <view class="flex-row justify-between group_13 mt-23">
+                <text class="font_2 text_15">支付方式</text>
+                <text class="font_2 text_16">微信支付</text>
+              </view>
+              <view class="flex-row justify-between group_14 mt-23">
+                <text class="font_2">备注</text>
+                <!-- <text class="font_5 text_18">请先和商家沟通好</text> -->
+                <input type="text" name="remark" class="font_5 text_18" placeholder="请先和商家沟通好" />
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="flex-row justify-between items-center section_5 mt-186">
+        <view class="flex-col items-start">
+          <text class="font_5 text_17 text_19">合计：</text>
+          <text class="font_6 text_21 mt-17">{{gift.requiredPoints}}积分+{{gift.price}}元</text>
+        </view>
+        <view class="flex-col justify-start items-center text-wrapper_3">
+          <button formType="submit" class="font_6 text_20" style="background-color: #fdcf40;">立即兑换</button>
+        </view>
+      </view>
+    </view>
+  </form>
+</view>

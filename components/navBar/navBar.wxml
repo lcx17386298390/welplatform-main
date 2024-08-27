@@ -1,0 +1,11 @@
+<view style="height:{{navigationHei}}px; top:{{navigationTop}}px; padding-left:{{paddingLeft}}px; padding-top: {{paddingTopNum}}px;" class="nav-bar">
+  <view class="nav-bar-left">
+    <!--返回按钮标签-->
+    <!-- <image bindtap="back" src="{{imgArrow}}" class="nav-bar-arrow" mode=""></image> -->
+    <!-- 左上角文字 -->
+  </view>
+  <!--标题内容-->
+  <view class="nav-bar-content">
+    <slot></slot>
+  </view>
+</view>

@@ -1,0 +1,29 @@
+<view class="flex-col page">
+  <view class="flex-col flex-1 group_4">
+    <!-- 头像和文本的外层容器，使用flex布局进行垂直居中和水平居中 -->
+    <view class="section" style="background-image: url('https://miimhub.com/pageUI/avter.png?e=1713455109&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:GkfQnzfU9mhtQRw0osSrcAGQi84='); display: flex; flex-direction: column; align-items: center; justify-content: center; width: 229rpx; height: 232rpx; box-sizing: border-box; position: relative; left: 262rpx; top: 25rpx">
+      <!-- 头像按钮 -->
+      <button open-type="chooseAvatar" bindchooseavatar="onChooseAvatar" class="avatar-button" style="margin-bottom: 10px; position: relative; left: -7rpx; top: 9rpx; width: 191rpx; height: 185rpx; display: block; box-sizing: border-box">
+        <!-- margin-bottom用于添加头像和文字之间的距离 -->
+        <image class="avatar-image" src="{{avatarUrl}}" style="width: 182rpx; height: 185rpx; border-radius: 50%; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx" />
+      </button>
+    </view>
+
+    <view wx:for="{{userInfoList}}" wx:key="unique" class="userinfo-item">
+      <text>{{item.name}}</text>
+      <text>{{item.detail}}</text>
+    </view>
+    <form bindsubmit="saveData" style="width: 750rpx; height: 969rpx; display: block; box-sizing: border-box; position: relative; left: -2rpx; top: -16rpx">
+      <view class="flex-row justify-between items-center section2" style="background-image: url('https://miimhub.com/pageUI/bgm.png?e=1713455120&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:z0Ylmh-QILvxLd7d-pBfEVrTBC8='); width: 750rpx; height: 159rpx; display: flex; box-sizing: border-box; position: relative; left: 2rpx; top: 60rpx">
+        <text class="font text-label" style="position: relative; left: 74rpx; top: 1rpx">昵称</text>
+        <input style="position: relative; width: 360rpx; height: 89rpx; display: block; box-sizing: border-box; left: -51rpx; top: -2rpx" name="nickname" type="nickname" class="font weui-input font_2" placeholder="请输入昵称" value="{{nickname}}" />
+      </view>
+      <view class="button-container" style="width: 750rpx; height: 334rpx; display: flex; box-sizing: border-box; left: -1rpx; top: 46rpx; position: relative">
+        <button class="font modifyBnt" form-type="submit" style="background-image: url('https://miimhub.com/pageUI/login-sure2.png?e=1713455145&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:9kK_dbSIe0cfFSRpGI9q9HoNg6U='); position: relative; left: 187rpx; top: 73rpx; width: 614rpx; height: 95rpx; box-sizing: border-box; display: block">保存</button>
+        <button class="font modifyBnt2" bindtap="exitLogin" style="background-image: url('https://miimhub.com/pageUI/login-sure2.png?e=1713455145&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:9kK_dbSIe0cfFSRpGI9q9HoNg6U='); position: relative; left: -198rpx; top: 215rpx; width: 599rpx; height: 95rpx; box-sizing: border-box">退出登录</button>
+      </view>
+    </form>
+
+  </view>
+
+</view>

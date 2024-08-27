@@ -1,0 +1,41 @@
+<!--pages/ucenter/auth/auth.wxml-->
+<t-toast id="t-toast" />
+<t-message id="t-message" />
+<view class="container" style="background-image: url('https://miimhub.com/login/login2.jpg?e=1713454551&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:g5oeRMnjl-un2_J8wYQFsig7XBU=');height: auto; position: relative;">
+  <image src=""></image>
+  <view class="form-box" style="width: 750rpx; height: 1246rpx; display: block; box-sizing: border-box; position: relative; left: 0rpx; top: -398rpx">
+    <view class="form-item username" style="background-image: url('https://miimhub.com/taskUI/taskbgm2.png?e=1713454564&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:I1j1_vwAbWc-V2E9PoKtjvviKUo='); width: 714rpx; height: 485rpx; display: block; box-sizing: border-box; position: relative; left: 1rpx; top: 30rpx">
+      <view class="TEXT" style="height: 381rpx; width: 665rpx; display: block; box-sizing: border-box; position: relative; left: 25rpx; top: 30rpx">
+        <t-textarea value="{{content}}" label="打卡内容" bind:change="bindContentInput" placeholder="请输入打卡内容" disableDefaultPadding="{{true}}" maxcharacter="200" indicator></t-textarea>
+      </view>
+
+    </view>
+
+    <form report-submit='true' onsubmit="uploadImgs">
+      <view class="cu-bar" style="background-image: url('https://miimhub.com/pageUI/add-status.png?e=1713454578&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:yIo53VLAksDxySqtRCrOfL0TpUA='); width: 614rpx; height: 79rpx; display: flex; box-sizing: border-box; left: 48rpx; top: 487rpx; position: relative">
+        <view class="action" style="position: relative; left: 2rpx; top: -20rpx">
+          上传照片
+        </view>
+        <view class="action" style="position: relative; left: 2rpx; top: -20rpx">
+          {{imgList.length}}/{{imgMaxNumber}}
+        </view>
+      </view>
+
+      <view class="cu" style="background-image: url('https://miimhub.com/pageUI/add-photo.png?e=1713454586&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:kDQePkgv8ol-k-J8cRA9FOdY-x0='); width: 700rpx; height: 388rpx; display: block; box-sizing: border-box">
+        <view style="position: relative; left: 23rpx; top: 0rpx; width: 453rpx; height: 312rpx; display: flex; flex-wrap: wrap; box-sizing: border-box">
+          <view wx:for="{{imgList}}" wx:key="index" bindtap="ViewImage" style="top: 40rpx; left: 30rpx; width: 100%; height: 100%; position: relative; padding: 0rpx; box-sizing: border-box;" data-url="{{imgList[index]}}">
+            <image src='{{imgList[index]}}' mode="aspectFill" style="width: 100%; height: 100%;"></image>
+            <view catchtap="DelImg" data-index="{{index}}" style="position: absolute; right: 0rpx; top: 0rpx; width: 66rpx; height: 66rpx; border-radius: 20%; display: flex; align-items: center; justify-content: center; background-color: rgba(8, 8, 8, 0.712); ">
+              <text class="cuIcon-close" style="color: white;"></text>
+            </view>
+          </view>
+          <view class="solid" bindtap="ChooseImage" wx:if="{{imgList.length<imgMaxNumber}}" style=" display: flex; box-sizing: border-box; position: relative; left: 18rpx; top: 53rpx; width: 426rpx; height: 271rpx;">
+          </view>
+        </view>
+      </view>
+
+    </form>
+
+    <view style="background-image: url('https://miimhub.com/pageUI/login-sure2.png?e=1713454597&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:C-9qkE1KEiCG1mPdLd4aTjveY5w='); position: relative; left: 94rpx; top: 147rpx; width: 492rpx; height: 95rpx; display: block; box-sizing: border-box" class="login" bind:tap="submitCheck" type="primary">提交</view>
+  </view>
+</view>

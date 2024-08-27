@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "navigationBarTitleText": "冒险",
+  "usingComponents": {
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-button": "tdesign-miniprogram/button/button"
+  }
+}

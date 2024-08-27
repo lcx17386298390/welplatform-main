@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "navigationBarTitleText": "逸夫楼",
+  "usingComponents": {
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog"
+  }
+}

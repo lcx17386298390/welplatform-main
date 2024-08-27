@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.TAdvertiseMapper">
+    
+    <resultMap type="TAdvertise" id="TAdvertiseResult">
+        <result property="uid"    column="uid"    />
+        <result property="title"    column="title"    />
+        <result property="keyword"    column="keyword"    />
+        <result property="cost"    column="cost"    />
+        <result property="content"    column="content"    />
+        <result property="clickCount"    column="click_count"    />
+        <result property="level"    column="level"    />
+        <result property="fileUid"    column="file_uid"    />
+    </resultMap>
+
+    <sql id="selectTAdvertiseVo">
+        select uid, title, keyword, cost, content, click_count, level, file_uid from t_advertise
+    </sql>
+
+    <select id="selectTAdvertiseList" parameterType="TAdvertise" resultMap="TAdvertiseResult">
+        <include refid="selectTAdvertiseVo"/>
+        <where>  
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="keyword != null  and keyword != ''"> and keyword = #{keyword}</if>
+            <if test="cost != null "> and cost = #{cost}</if>
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="clickCount != null "> and click_count = #{clickCount}</if>
+            <if test="level != null "> and level = #{level}</if>
+            <if test="fileUid != null  and fileUid != ''"> and file_uid = #{fileUid}</if>
+        </where>
+    </select>
+    
+    <select id="selectTAdvertiseByUid" parameterType="String" resultMap="TAdvertiseResult">
+        <include refid="selectTAdvertiseVo"/>
+        where uid = #{uid}
+    </select>
+        
+    <insert id="insertTAdvertise" parameterType="TAdvertise">
+        insert into t_advertise
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">uid,</if>
+            <if test="title != null">title,</if>
+            <if test="keyword != null">keyword,</if>
+            <if test="cost != null">cost,</if>
+            <if test="content != null">content,</if>
+            <if test="clickCount != null">click_count,</if>
+            <if test="level != null">level,</if>
+            <if test="fileUid != null">file_uid,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">#{uid},</if>
+            <if test="title != null">#{title},</if>
+            <if test="keyword != null">#{keyword},</if>
+            <if test="cost != null">#{cost},</if>
+            <if test="content != null">#{content},</if>
+            <if test="clickCount != null">#{clickCount},</if>
+            <if test="level != null">#{level},</if>
+            <if test="fileUid != null">#{fileUid},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTAdvertise" parameterType="TAdvertise">
+        update t_advertise
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null">title = #{title},</if>
+            <if test="keyword != null">keyword = #{keyword},</if>
+            <if test="cost != null">cost = #{cost},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="clickCount != null">click_count = #{clickCount},</if>
+            <if test="level != null">level = #{level},</if>
+            <if test="fileUid != null">file_uid = #{fileUid},</if>
+        </trim>
+        where uid = #{uid}
+    </update>
+
+    <delete id="deleteTAdvertiseByUid" parameterType="String">
+        delete from t_advertise where uid = #{uid}
+    </delete>
+
+    <delete id="deleteTAdvertiseByUids" parameterType="String">
+        delete from t_advertise where uid in 
+        <foreach item="uid" collection="array" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </delete>
+</mapper>

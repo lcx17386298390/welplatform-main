@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.TPointMapper">
+    
+    <resultMap type="TPoint" id="TPointResult">
+        <result property="uid"    column="uid"    />
+        <result property="userId"    column="user_id"    />
+        <result property="points"    column="points"    />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <sql id="selectTPointVo">
+        select uid, user_id, points, update_time from t_point
+    </sql>
+
+    <select id="selectTPointList" parameterType="TPoint" resultMap="TPointResult">
+        <include refid="selectTPointVo"/>
+        <where>  
+            <if test="userId != null  and userId != ''"> and user_id = #{userId}</if>
+            <if test="points != null "> and points = #{points}</if>
+        </where>
+    </select>
+    
+    <select id="selectTPointByUid" parameterType="String" resultMap="TPointResult">
+        <include refid="selectTPointVo"/>
+        where uid = #{uid}
+    </select>
+        
+    <insert id="insertTPoint" parameterType="TPoint">
+        insert into t_point
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">uid,</if>
+            <if test="userId != null and userId != ''">user_id,</if>
+            <if test="points != null">points,</if>
+            <if test="updateTime != null">update_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">#{uid},</if>
+            <if test="userId != null and userId != ''">#{userId},</if>
+            <if test="points != null">#{points},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTPoint" parameterType="TPoint">
+        update t_point
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null and userId != ''">user_id = #{userId},</if>
+            <if test="points != null">points = #{points},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </trim>
+        where uid = #{uid}
+    </update>
+
+    <delete id="deleteTPointByUid" parameterType="String">
+        delete from t_point where uid = #{uid}
+    </delete>
+
+    <delete id="deleteTPointByUids" parameterType="String">
+        delete from t_point where uid in 
+        <foreach item="uid" collection="array" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </delete>
+</mapper>

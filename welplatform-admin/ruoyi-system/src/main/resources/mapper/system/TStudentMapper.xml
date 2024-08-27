@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.TStudentMapper">
+    
+    <resultMap type="TStudent" id="TStudentResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="academy"    column="academy"    />
+        <result property="level"    column="level"    />
+        <result property="major"    column="major"    />
+        <result property="grade"    column="grade"    />
+        <result property="classroom"    column="classroom"    />
+        <result property="studentId"    column="student_id"    />
+        <result property="nation"    column="nation"    />
+        <result property="school"    column="school"    />
+        <result property="idCard"    column="id_card"    />
+        <result property="enterTime"    column="enter_time"    />
+        <result property="graduateTime"    column="graduate_time"    />
+    </resultMap>
+
+    <sql id="selectTStudentVo">
+        select id, name, academy, level, major, grade, classroom, student_id, nation, school, id_card, enter_time, graduate_time from t_student
+    </sql>
+
+    <select id="selectTStudentList" parameterType="TStudent" resultMap="TStudentResult">
+        <include refid="selectTStudentVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="academy != null  and academy != ''"> and academy = #{academy}</if>
+            <if test="level != null  and level != ''"> and level = #{level}</if>
+            <if test="major != null  and major != ''"> and major = #{major}</if>
+            <if test="grade != null  and grade != ''"> and grade = #{grade}</if>
+            <if test="classroom != null  and classroom != ''"> and classroom = #{classroom}</if>
+            <if test="studentId != null  and studentId != ''"> and student_id = #{studentId}</if>
+            <if test="nation != null  and nation != ''"> and nation = #{nation}</if>
+            <if test="school != null  and school != ''"> and school = #{school}</if>
+            <if test="idCard != null  and idCard != ''"> and id_card = #{idCard}</if>
+            <if test="enterTime != null "> and enter_time = #{enterTime}</if>
+            <if test="graduateTime != null "> and graduate_time = #{graduateTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectTStudentById" parameterType="String" resultMap="TStudentResult">
+        <include refid="selectTStudentVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertTStudent" parameterType="TStudent">
+        insert into t_student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="name != null and name != ''">name,</if>
+            <if test="academy != null and academy != ''">academy,</if>
+            <if test="level != null and level != ''">level,</if>
+            <if test="major != null and major != ''">major,</if>
+            <if test="grade != null and grade != ''">grade,</if>
+            <if test="classroom != null and classroom != ''">classroom,</if>
+            <if test="studentId != null and studentId != ''">student_id,</if>
+            <if test="nation != null and nation != ''">nation,</if>
+            <if test="school != null and school != ''">school,</if>
+            <if test="idCard != null and idCard != ''">id_card,</if>
+            <if test="enterTime != null">enter_time,</if>
+            <if test="graduateTime != null">graduate_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="name != null and name != ''">#{name},</if>
+            <if test="academy != null and academy != ''">#{academy},</if>
+            <if test="level != null and level != ''">#{level},</if>
+            <if test="major != null and major != ''">#{major},</if>
+            <if test="grade != null and grade != ''">#{grade},</if>
+            <if test="classroom != null and classroom != ''">#{classroom},</if>
+            <if test="studentId != null and studentId != ''">#{studentId},</if>
+            <if test="nation != null and nation != ''">#{nation},</if>
+            <if test="school != null and school != ''">#{school},</if>
+            <if test="idCard != null and idCard != ''">#{idCard},</if>
+            <if test="enterTime != null">#{enterTime},</if>
+            <if test="graduateTime != null">#{graduateTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTStudent" parameterType="TStudent">
+        update t_student
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="academy != null and academy != ''">academy = #{academy},</if>
+            <if test="level != null and level != ''">level = #{level},</if>
+            <if test="major != null and major != ''">major = #{major},</if>
+            <if test="grade != null and grade != ''">grade = #{grade},</if>
+            <if test="classroom != null and classroom != ''">classroom = #{classroom},</if>
+            <if test="studentId != null and studentId != ''">student_id = #{studentId},</if>
+            <if test="nation != null and nation != ''">nation = #{nation},</if>
+            <if test="school != null and school != ''">school = #{school},</if>
+            <if test="idCard != null and idCard != ''">id_card = #{idCard},</if>
+            <if test="enterTime != null">enter_time = #{enterTime},</if>
+            <if test="graduateTime != null">graduate_time = #{graduateTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTStudentById" parameterType="String">
+        delete from t_student where id = #{id}
+    </delete>
+
+    <delete id="deleteTStudentByIds" parameterType="String">
+        delete from t_student where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

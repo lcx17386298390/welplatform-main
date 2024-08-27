@@ -1,0 +1,10 @@
+<!-- 正在实时检测任务打卡页面 -->
+<view class="container">
+  <!-- index.wxml -->
+  <view class="radar-animation">
+    <view class="radar-scan"></view>
+  </view>
+  <view class="status-display">
+    {{status ? '已打卡成功' : '正在等待打卡'}}
+  </view>
+</view>

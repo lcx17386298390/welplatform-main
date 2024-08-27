@@ -1,0 +1,51 @@
+<view class="flex-col justify-start relative page">
+  <view class="flex-col section" style="background-image: url('https://miimhub.com/UI/taskbgm.png?e=1713454317&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:APOiKr_UWseObcfRO2M_-wW9wOQ=')">
+    <view class="flex-col justify-start items-end self-center group">
+      <view class="group_1"></view>
+    </view>
+    <view class="flex-col self-start group_2 mt-23-5">
+      <view class="group_16"></view>
+      <view class="flex-col justify-start items-start mt-15">
+        <view class="flex-row items-start">
+          <view class="group_6"></view>
+          <view class="flex-col group_4 ml-35-5">
+            <view class="flex-col justify-start items-center relative group_5">
+              <image class="image_8" src="https://miimhub.com/ranking/%E7%9A%87%E5%86%A0_8.png?e=1713454348&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:0UXynlTwV9BedkQmciN5lJXAj04=" />
+              <view class="flex-col justify-start items-center image-wrapper pos_2" style="background-image: url({{backgroundImageUrl_1}});">
+                <image class="shrink-0 self-center relative image_7" src="https://miimhub.com/ranking/%E7%9A%87%E5%86%A0_7.2.png?e=1713454358&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:lmhJ4zszlbWIuOlRrcm_Ck1trvg=" />
+              </view>
+              <image class="image_6 pos" src="https://miimhub.com/ranking/%E7%9A%87%E5%86%A0_6.png?e=1713454364&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:j29TGzonXhzfjHM8YbAljAe-VfE=" />
+              <image class="image_10 pos_4" src="https://miimhub.com/ranking/%E7%9A%87%E5%86%A0_10.png?e=1713454371&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:CZaprbfgHLPwQQbiy_6cF3PwF6o=" />
+            </view>
+            <text class="text_2 mt-19">积分榜</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <text class="text_3 pos_6">{{currentDate}}</text>
+  <view class="flex-col section_2 pos_8">
+    <view class="flex-col justify-start items-start">
+      <view class="flex-row items-center group_7">
+        <text class="font text_4 ml-7-5">排行榜实时更新</text>
+      </view>
+    </view>
+          <view class="mt-28 flex-col">
+            <view class="flex-col justify-start items-start list-item mt-28-5" wx:for="{{rankList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+              <view class="flex-row items-center group_14">
+                <view wx:if="{{index < 3}}" class="flex-col justify-start items-center relative section_3" style="background-image:url({{index === 0 ? backgroundImageUrl_2 : index === 1 ? backgroundImageUrl_3 : backgroundImageUrl_4}});">
+                  <text class="font_3 text_6">{{index + 1}}</text>
+                </view>
+                <text wx:if="{{index >= 3}}" class="font_3 text_66">{{index + 1}}</text>
+                <view class="ml-36 flex-row items-center shrink-0">
+                  <image class="image_17" src='{{item.avatar}}' />
+                  <view class="flex-col items-start ml-23-5">
+                    <text class="font_2 text_17">{{item.userName}}</text>
+                    <text class="mt-10 font_4 text_20">积分: {{item.points}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>  
+  </view>
+</view>

@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-size: 106% 106%;
+  background-position: center;
+}
+
+.header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.title {
+  font-size: 24px;
+  color: #FFF;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.task-list {
+  flex: 1;
+  padding: 10px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  background-color: rgb(224, 206, 172);
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.task-icon {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+.task-content {
+  flex: 1;
+}
+
+.task-name {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.task-desc {
+  font-size: 14px;
+  color: #666;
+}
+
+.go-detail {
+  color: #1e90ff;
+  font-size: 14px;
+}

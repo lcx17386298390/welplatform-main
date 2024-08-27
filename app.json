@@ -1,0 +1,110 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/ranking/ranking",
+    "pages/index/all_tasks/all_tasks",
+    "pages/map/index",
+    "pages/map/details",
+    "pages/map/polyline",
+    "pages/map/search",
+    "pages/ucenter/index/index",
+    "pages/adventure/adventure",
+    "pages/auth/login/login",
+    "pages/auth/accountLogin/accountLogin",
+    "pages/auth/register/register",
+    "pages/auth/reset/reset",
+    "pages/ucenter/auth/auth",
+    "pages/ucenter/admission/admission",
+    "pages/buildings/bo/bo",
+    "pages/buildings/gym/gym",
+    "pages/buildings/yi/yi",
+    "pages/buildings/shitang/shitang",
+    "pages/buildings/zi/zi",
+    "pages/ucenter/info/info",
+    "pages/web-views/web-views",
+    "pages/warehouse/warehouse",
+    "pages/task/details/detail",
+    "pages/task/finish/finish",
+    "pages/ucenter/pointsexchange/pointexchange",
+    "pages/task/location/location",
+    "pages/task/camera/camera",
+    "pages/logs/logs"
+  ],
+  "permission": {
+    "scope.userFuzzyLocation": {
+      "desc": "你的位置信息将用于提供准确校园导航"
+    },
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于提供准确校园导航"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getFuzzyLocation",
+    "chooseLocation"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FCE4B3",
+    "enablePullDownRefresh": true,
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "大学生迎新平台",
+    "backgroundTextStyle": "light",
+    "navigationStyle": "default"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/university.png",
+        "selectedIconPath": "images/university_selected.png"
+      },
+      {
+        "pagePath": "pages/adventure/adventure",
+        "iconPath": "images/adventure.png",
+        "selectedIconPath": "images/adventure_selected.png"
+      },
+      {
+        "pagePath": "pages/ucenter/index/index",
+        "iconPath": "images/student.png",
+        "selectedIconPath": "images/student_selected.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "navBar": "/components/navBar/navBar",
+    "van-calendar": "@vant/weapp/calendar/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-notify": "@vant/weapp/notify/index",
+    "van-field": "@vant/weapp/field/index",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-message": "tdesign-miniprogram/message/message",
+    "t-image": "tdesign-miniprogram/image/image",
+    "t-navbar": "tdesign-miniprogram/navbar/navbar",
+    "t-search": "tdesign-miniprogram/search/search",
+    "t-textarea": "tdesign-miniprogram/textarea/textarea"
+  },
+  "subPackages": [
+
+  ]
+}

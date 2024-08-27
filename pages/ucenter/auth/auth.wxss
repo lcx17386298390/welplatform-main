@@ -1,0 +1,150 @@
+/* Improved spacing and layout for a cleaner look */
+.container {
+  padding: 0;
+}
+
+/* Simplified form-box for a neat appearance */
+.form-box {
+  margin-top: 50rpx;
+  padding: 20rpx;
+  border-radius: 32rpx; /* Rounded corners for a modern, app-like feel */
+  box-shadow: 0 14rpx 18rpx rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Apply a general aesthetic to all form items for consistency */
+.form-item {
+  box-shadow: 0 4rpx 6rpx rgba(0, 0, 0, 0.1); /* Uniform shadow for depth and consistency */
+  margin-bottom: 20rpx; /* More space between form items */
+  background-color: transparent;
+}
+
+/* Ensure the input fields are large enough to display the content comfortably */
+.form-item input {
+  width: 100%; /* Use full width of the form item container */
+  height: 100rpx; /* Increase height to fit the content */
+  padding: 0 30rpx; /* Adequate padding on the sides */
+  font-size: 36rpx; /* Larger font size for better legibility */
+  line-height: 100rpx; /* Center text vertically within the input field */
+  border-radius: 15rpx;
+  background-color: transparent; /* White background for clarity */
+}
+.input{
+  padding-left: 74rpx;
+  --td-input-bg-color:transparent;
+  --td-input-border-color:transparent;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.input2{
+  padding-left: 13rpx;
+  --td-input-bg-color:transparent;
+  --td-input-border-color:transparent;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+/* Stylish clear button */
+.form-item .clear {
+  width: 44rpx;
+  height: 44rpx;
+  right: 18rpx;
+}
+
+/* Center the submit button and apply game-like button style */
+.login-btn {
+  display: block;
+  margin: 30rpx auto; /* Center button with automatic horizontal margins */
+  padding: 80rpx 0;
+  background-color: transparent; /* Change to a game-like vibrant color */
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: #000000;
+  text-align: center;
+  border-radius: 25rpx;
+  box-shadow: 0 5rpx 10rpx rgba(0, 0, 0, 0.2);
+  font-size: 34rpx;
+  font-weight: bold;
+  transition: all 0.6s ease;
+}
+.login-btn:active {
+  transform: scale(1.2);
+}
+
+/* Adjust the hover effect if you expect it to be used on platforms that support it */
+.login-btn:hover {
+  background-image: linear-gradient(45deg, #82c91e, #c0eb75); /* Lighten the gradient on hover */
+}
+
+/* Image and icon adjustments for a game-like UI */
+.bg-img{
+  background-repeat: no-repeat;
+  background-color: transparent;
+  /* background-size: 100% 100%; */
+  background-size: cover;
+}
+
+.bg-img .cu-tag {
+  top: 8rpx; /* Position close icon inside the image area */
+  right: 8rpx;
+}
+.fillImage{
+  width: 100%;
+  height: 100%;
+}
+.text{
+  color: rgb(230, 230, 230);
+}
+.solids{
+  border-color: transparent;
+}
+.solids text {
+  font-size: 36rpx; /* Larger icon for visual emphasis */
+}
+
+/* Adjust the background and text color for the upload bars for better visibility */
+.cu-bar {
+  background-color: transparent; /* Lighter background for better contrast */
+  color: rgb(0, 0, 0); /* Dark text for readability */
+  padding: 20rpx; /* Padding for spacing inside the bar */
+  border-radius: 28rpx; /* Rounded corners to match the input fields */
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  margin-top: 20rpx; /* Ensure space between form elements */
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: 100% 100%;
+}
+
+.cu-bar .action {
+  font-weight: bold; /* Bold text to mimic game UIs */
+  padding-bottom: 28rpx;
+}
+.chooseImage{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+iamge{
+  width: fit-content;
+}
+
+.grid{
+  width: 500rpx;
+}
+.grid .solids text {
+  font-size: 55rpx; /* Larger plus icon */
+  color: #5d5f62;
+}
+
+/* Enhance visibility and interactivity */
+.grid .bg-img:hover, .grid .solids:hover {
+  background-color: transparent; /* Slightly darker on hover for interactive feedback */
+  border-color: transparent; /* Darker border on hover */
+}
+.bgm{
+  z-index: -10;
+  background-repeat: no-repeat;
+}
+.cu{
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: 100% 100%;
+}

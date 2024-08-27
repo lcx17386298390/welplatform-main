@@ -1,0 +1,68 @@
+<view class="flex-col page" style="width: 750rpx; height: 1342rpx; display: flex; box-sizing: border-box">
+  <!-- <view class="example-search">
+  <t-search model:value="{{value}}" placeholder="搜索" shape="round" bind:change="onChange"/>
+  </view> -->
+  <view class="flex-col flex-1 group_2 zindex" style="width: 750rpx; height: 1286rpx; display: flex; box-sizing: border-box">
+    <view class="bgm" style="position: absolute; left: -14rpx; top: -102rpx; width: -75rpx; height: 2rpx; display: block; box-sizing: border-box">
+    </view>
+    <view class="flex-col group_3" style="width: 750rpx; height: 1357rpx; display: flex; box-sizing: border-box">
+      <view class="swiper" style="width: 824rpx; height: 382rpx; display: block; box-sizing: border-box; left: -109rpx; top: -2rpx; position: relative">
+        <image class="swiper-on" src="https://miimhub.com/pageUI/swiper.png?e=1713454098&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:fHBZtwb5hmf51H1V56d3FRDrudw=" style="width: 766rpx; height: 433rpx; display: inline-block; box-sizing: border-box; left: 69rpx; top: -28rpx; position: relative"></image>
+        <!-- 使用 t-swiper 组件 -->
+        <t-swiper current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" list="{{swiperList}}" navigation="{{ { type: 'dots-bar' } }}" style="width: 705rpx; height: 346rpx; position: relative; left: 100rpx; top: -100rpx; display: block; box-sizing: border-box">
+        </t-swiper>
+      </view>
+
+      <view class="flex-col view" style="width: 0rpx; height: -62rpx; display: flex; box-sizing: border-box; position: relative; left: -14rpx; top: -20rpx">
+      <view class="adorn" style="position: absolute; background-image: url('https://miimhub.com/pageUI/adorn.png?e=1713454111&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:yxsk85YfMlCOBy2vjdMD6lepXiA='); width: 133rpx; height: 119rpx; display: block; box-sizing: border-box; left: -32rpx; top: 396rpx"></view>
+        <view class="page-ui" style="background-image: url('https://miimhub.com/pageUI/listBg.png?e=1713454119&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:msL9HNvWAuU1_5qnpp27ibSKx2g='); position: absolute; left: 7rpx; top: 482rpx; width: 714rpx; height: 262rpx; display: block; box-sizing: border-box">
+          <text class="self-start font text_3" style="position: relative; left: 16rpx; top: 23rpx">服务</text>
+          <view class="flex-row horiz-list group_5 " style="position: relative; left: 16rpx; top: -2rpx; width: 663rpx; height: 201rpx; display: flex; box-sizing: border-box">
+            <view wx:for="{{menuItems}}" wx:key="index" data-url='{{item.url}}' bind:tap="goPages" wx:if="{{item.url!='#'}}" style="width: 220rpx; height: 175rpx; display: flex; box-sizing: border-box; position: relative; left: 8rpx; top: -14rpx">
+              <image style="position: relative; left: 20rpx; top: -48rpx; width: 182rpx; height: 199rpx; display: block; box-sizing: border-box" class="image_7" src="{{item.imgSrc}}" binderror="imageLoadError" />
+              <view class="item-text" style="position: absolute; left: 32rpx; top: 121rpx; width: 157rpx; height: 46rpx; display: block; box-sizing: border-box">{{item.text}}</view>
+            </view>
+          </view>
+          <image class="vine-revert" src="https://miimhub.com/taskUI/vine.png?e=1713454132&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:GciZLy-QVLB6T_z4whW5xDtPKWo=" style="position: absolute; left: 616rpx; top: -14rpx; width: 128rpx; height: 145rpx; display: block; box-sizing: border-box"></image>
+        </view>
+      </view>
+      <view id="part2" style="width: 745rpx; height: 478rpx; display: block; box-sizing: border-box; position: relative; left: -14rpx; top: -20rpx">
+        <view id="ui-icon">
+          <view class="vine" style="background-image: url('https://miimhub.com/taskUI/vine2.png?e=1713454141&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:mVEVxUOmyRHGnJrFO3BjWdyFxfI='); position: absolute; width: 124rpx; height: 124rpx; display: block; box-sizing: border-box; left: -20rpx; top: -82rpx"></view>
+          <view class="vine-more" style="background-image: url('https://miimhub.com/pageUI/vine3.png?e=1713454153&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:Ufg1SrgoCrPUXvnOIQcdXbkUAvo='); width: 159rpx; height: 159rpx; position: absolute; left: 572rpx; top: -99rpx; display: block; box-sizing: border-box"></view>
+          <view class="look" bindtap="navigateToTask" style="background-image: url('https://miimhub.com/taskUI/look.png?e=1713454172&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:MvxYRY49MKozDeCabyxbLrlEbk0='); width: 379rpx; height: 159rpx; display: flex; box-sizing: border-box; position: absolute; left: 409rpx; top: 386rpx">
+            <text class="font_10" style="width: 182rpx; height: 102rpx; display: block; box-sizing: border-box; position: absolute; left: 105rpx; top: 9rpx">查看</text>
+          </view>
+        </view>
+        <view class="flex-col group_4 view_2 task_padding" style="width: 679rpx; height: 538rpx; display: flex; box-sizing: border-box; position: relative; left: 21rpx; top: -119rpx">
+          <view class="flex-row justify-between items-center group_6" style="width: 681rpx; height: 65rpx; display: flex; box-sizing: border-box">
+            <text class="font text_9" style="position: relative; left: 62rpx; top: 1rpx; width: 215rpx; height: 72rpx; display: block; box-sizing: border-box">你的任务</text>
+          </view>
+
+          <view class="flex-col group_4 mt-19" style="position: relative; left: 0rpx; top: -37rpx; width: 681rpx; height: 437rpx; display: flex; box-sizing: border-box">
+            <view class="flex-row items-center mt-20 group_4" wx:for="{{top3UserTasks}}" wx:for-item="item" wx:for-index="index" wx:key="index" style="width: 646rpx; height: 137rpx; display: flex; box-sizing: border-box; left: 0rpx; top: 0rpx" wx:if="{{!item.status}}">
+              <view class="flex-row justify-center items-center shrink-0 group_7">
+                <image style="position: relative; left: 26rpx; top: -14rpx; width: 91rpx; height: 95rpx; display: block; box-sizing: border-box" class="image_9" src="{{item.task.fileUid}}" />
+                <view class="ml-10 flex-col items-start" style="position: relative; left: 21rpx; top: -2rpx">
+                  <text class="font_5 text_10">{{item.task.taskName}}</text>
+                </view>
+              </view>
+              <view class="flex-row justify-center shrink-0 group_8">
+                <view class="flex-col justify-start items-center text-wrapper ml-15">
+                  <navigator class="font_6" url="../task/details/detail?uid={{item.task.uid}}">去完成</navigator>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view id="search" style="height: 130rpx; width: 745rpx; position: absolute; left: 3rpx; top: 1167rpx; display: block; box-sizing: border-box" bind:tap="navigateToSearchPage">
+        <view class="search-icon" style="background-image: url('https://miimhub.com/UI/search3.png?e=1713454192&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:8hgZMnpNncaEfpSicAnpVMmXYLs='); display: block; position: relative; width: 75rpx; height: 77rpx; box-sizing: border-box; left: 41rpx; top: 27rpx">
+        </view>
+        <view class="search" style="background-image: url('https://miimhub.com/pageUI/search.png?e=1713402123&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:ZmWr_n5vs9QA-dxdx3mgzmeGsfU='); width: 723rpx; height: 98rpx; display: block; box-sizing: border-box; position: relative; left: 23rpx; top: -62rpx">
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

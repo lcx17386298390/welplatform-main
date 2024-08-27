@@ -1,0 +1,154 @@
+/* Improved spacing and layout for a cleaner look */
+.container {
+  background: #a38f1d65;
+  /* Bright background for better contrast */
+  background-size: 150% 100%;
+  background-repeat: no-repeat;
+}
+
+.cu {
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: 100% 100%;
+}
+
+/* Simplified form-box for a neat appearance */
+.form-box {
+  margin-top: 50rpx;
+  padding: 20rpx;
+  background: transparent;
+  /* Soft background for the form area */
+  border-radius: 12rpx;
+  /* Rounded corners for a modern, app-like feel */
+}
+
+/* Apply a general aesthetic to all form items for consistency */
+.form-item {
+  margin-bottom: 30rpx;
+  /* More space between form items */
+  background-color: transparent;
+}
+
+/* Ensure the input fields are large enough to display the content comfortably */
+.form-item input {
+  width: 100%;
+  /* Use full width of the form item container */
+  height: 100rpx;
+  /* Increase height to fit the content */
+  padding: 0 30rpx;
+  /* Adequate padding on the sides */
+  font-size: 36rpx;
+  /* Larger font size for better legibility */
+  line-height: 100rpx;
+  /* Center text vertically within the input field */
+  border-radius: 15rpx;
+}
+
+/* Stylish clear button */
+.form-item .clear {
+  width: 44rpx;
+  height: 44rpx;
+  top: 26rpx;
+  right: 18rpx;
+}
+
+/* Center the submit button and apply game-like button style */
+.login {
+  padding: 20rpx 0;
+  background-color: transparent;
+  /* Change to a game-like vibrant color */
+  color: #000000de;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: transparent;
+}
+
+/* Interactive pseudo-classes for the button to add a press effect */
+.login:active {
+  transform: translateY(10px);
+}
+
+/* Adjust the hover effect if you expect it to be used on platforms that support it */
+.login-btn:hover {
+  background-image: linear-gradient(45deg, #82c91e, #c0eb75);
+  /* Lighten the gradient on hover */
+}
+
+.bg-img .cu-tag {
+  top: 8rpx;
+  /* Position close icon inside the image area */
+  right: 8rpx;
+}
+
+.solid text {
+  font-size: 36rpx;
+  /* Larger icon for visual emphasis */
+}
+
+/* Adjust the background and text color for the upload bars for better visibility */
+.cu-bar {
+  background-color: transparent;
+  /* Lighter background for better contrast */
+  color: rgba(255, 255, 255, 0.781);
+  /* Dark text for readability */
+  padding: 20rpx;
+  margin-top: 20rpx;
+  /* Ensure space between form elements */
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.cu-bar .action {
+  font-weight: bold;
+  /* Bold text to mimic game UIs */
+}
+
+/* Grid layout refinement for image upload sections */
+.grid {
+  justify-content: space-between;
+  /* Evenly space out grid items */
+  margin: 0;
+  /* Reset margins */
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* Styling for the upload section to match nurturing game aesthetics */
+.grid .bg-img,
+.grid .solid {
+  margin: 10rpx;
+  /* Margin around the images for spacing */
+  /* Add a subtle texture or pattern if you have one that fits the theme */
+  background-size: cover;
+  /* Ensure the background covers the entire element */
+}
+
+/* Modify the appearance of the image upload placeholders */
+.grid .solid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.grid .solid text {
+  font-size: 55rpx;
+  /* Larger plus icon */
+}
+
+/* If your app is primarily for mobile, instead of hover effects,
+   consider using touch feedback effects such as scaling or opacity changes. */
+.username {
+  --td-textarea-background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: transparent;
+}
+
+.TEXT {
+  --td-textarea-text-color: rgb(0, 0, 0);
+}

@@ -1,0 +1,69 @@
+<view class="flex-col page">
+  <view class="flex-col">
+    <view class="flex-col section">
+      <view class="flex-col justify-start items-end self-stretch group_2">
+        <view class="image-wrapper_1"></view>
+      </view>
+      <view class="mt-28 flex-col justify-start items-end self-start group_3">
+        <text class="text_2">积分兑换</text>
+      </view>
+    </view>
+    <view class="flex-col justify-start section_2">
+      <view class="flex-row relative group_4">
+        <image class="image_8 pos_5" src="https://miimhub.com/pointsexchange/yun_1.png?e=1713455180&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:fGXW6UnTwDDY-JdRQ93tFO_VgvU=" />
+        <image class="image_6 pos_3" src="https://miimhub.com/pointsexchange/yun_2.png?e=1713455186&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:slo1qyLYcYhFKbxPqt_wmxO4dyM=" />
+        <view class="section_4 pos_6"></view>
+        <view class="flex-col justify-start items-end group_5 pos_9">
+          <view class="flex-col justify-start items-center text-wrapper_2">
+            <text class="font_6 text_4">1234</text>
+          </view>
+          <image class="image_9 pos_10" src="https://miimhub.com/pointsexchange/2.png?e=1713455195&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:Ya5GFae4ST_BmRPsn0Z7pBOKV1k=" />
+        </view>
+        <view class="flex-col section_5 pos_8">
+          <text class="self-center font_4 text_5">可兑换积分</text>
+          <view class="flex-row justify-center self-stretch group_6 mt-11">
+            <text class="self-center text_7">1234</text>
+          </view>
+          <view class="flex-row items-center self-stretch section_6 mt-11">
+            <image class="shrink-0 image_13" src="https://miimhub.com/pointsexchange/4.png?e=1713455203&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:Iv3YmvJEnAs_B3gB_GOvOjol9mw=" />
+            <text class="font_5 text_13 ml-9">1.234 元</text>
+          </view>
+        </view>
+        <image class="image_12 pos_23" src="https://miimhub.com/pointsexchange/yun_3.png?e=1713455210&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:R5h9zCco_JBKsRtLXnVy_8mNMfM=" />
+      </view>
+    </view>
+    <view class="flex-col justify-start group_8">
+      <view class="flex-col section_8">
+        <view class="flex-row justify-between items-center group_9">
+          <text class="font_5 text_18">可兑换礼品专区</text>
+        </view>
+        <view class="mt-26 flex-row justify-between items-baseline group_10">
+          <text class="font_6 text_20">全部</text>
+          <text class="font">娱乐</text>
+          <text class="font text_21">美食</text>
+          <text class="font text_22">日用</text>
+          <text class="font text_23">彩妆</text>
+          <text class="font text_24">母婴</text>
+          <text class="font text_25">童装</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="flex-col justify-start items-start divider">
+    <view class="shrink-0 section_9"></view>
+  </view>
+  <view class="flex-row equal-division">
+  <view wx:for="{{giftList}}" wx:key="index" wx:for-item="gift" wx:for-index="idx" class="flex-col equal-division-item section_10" style="background-image: url({{backgroundImageUrl_1}}); width: 355rpx; height: 543rpx; display: flex; box-sizing: border-box" bindtap="navigateToPaymentPage" data-giftid="{{gift.giftId}}">
+    <view class="flex-col justify-start items-center self-stretch image-wrapper" style="width: 353rpx; height: 339rpx; display: flex; box-sizing: border-box">
+      <image class="image_17" src="{{gift.imageLink}}" />
+    </view>
+    <text class="self-start font text_26 text_27">{{gift.giftName}}</text>
+    <view class="flex-row items-center self-stretch group_11">
+      <image class="image_18" src="https://miimhub.com/pointsexchange/bi_2.png?e=1713455218&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:3W00R3xQNXeCZflhU2exUGwRqpw=" />
+      <text class="font_6 text_29 ml-5">{{gift.requiredPoints}}+{{gift.price}}元</text>
+      <text class="self-start font_8 text_31">库存{{gift.stockQuantity}}件</text>
+    </view>
+  </view>
+</view>
+
+</view>

@@ -1,0 +1,333 @@
+/* pages/adventure/adventure.wxss */
+.task-five {
+  z-index: 31;
+  position: fixed;
+  background-color: transparent;
+}
+.fontAll{
+  font-family: maozi;
+  color: #3f5f13; 
+  font-size: 40rpx;
+}
+.five {
+  z-index: 30;
+  position: fixed;
+}
+.closeReward{
+  background-color: transparent;
+  background-repeat: no-repeat;
+}
+.tblock {
+  --td-popup-bg-color: transparent;
+}
+.texting{
+  font-family: 'Arial', sans-serif; 
+  font-size: 30px;
+}
+.close-btn {
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.block {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  background-size: 100%;
+  background-position: center;
+  background-color: transparent;
+  background-repeat: no-repeat;
+}
+
+.task-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.task-action {
+  margin-top: 20rpx;
+  text-decoration: underline;
+  color: #4d8bd1;
+  /* 或其他您希望的颜色 */
+  /* 其他样式 */
+}
+
+.point {
+  z-index: 31;
+}
+
+.text-point {
+  z-index: 33;
+  font-size: 30px;
+  text-align: right;
+  direction: rtl;
+}
+.baiwu{
+  z-index: 25;
+}
+.lock{
+  z-index: 26;
+}
+.main{
+  z-index: 21;
+  background: transparent;
+  background-size: cover;
+}
+.main2{
+  z-index: 25;
+  background: transparent;
+  background-size: cover;
+}
+.main3{
+  z-index: 25;
+  background: transparent;
+  background-size: cover;
+  transform: rotate(20deg);
+}
+.main4{
+  z-index: 25;
+  background: transparent;
+  background-size: cover;
+  transform: scaleX(-1) rotate(20deg);
+}
+.menu {
+  z-index: 21;
+}
+
+.menu-bar {
+  z-index: 21;
+}
+
+.task-yi {
+  z-index: 20;
+  background-color: transparent;
+}
+
+.task-bo {
+  z-index: 20;
+  background-color: transparent;
+}
+
+.task-shitang {
+  z-index: 20;
+  background-color: transparent;
+}
+
+.task-gym {
+  z-index: 20;
+  background-color: transparent;
+}
+
+.task-zi {
+  z-index: 20;
+  background-color: transparent;
+}
+
+.cover {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+.n1 {
+  z-index: 10;
+}
+
+.n2 {
+  z-index: 10;
+}
+
+.n3 {
+  z-index: 10;
+}
+
+.n4 {
+  z-index: 10;
+}
+
+.shushe2 {
+  z-index: 2;
+}
+
+.bankuai {
+  z-index: 4;
+}
+
+.shushe {
+  z-index: 6;
+}
+
+.zi {
+  z-index: 6;
+}
+
+.gym {
+  z-index: 5;
+}
+
+.gym2 {
+  z-index: 5;
+}
+
+.gym3 {
+  z-index: 7;
+}
+
+.dian {
+  z-index: 6;
+}
+
+.dian2 {
+  z-index: 6;
+}
+
+.water {
+  z-index: 0;
+}
+
+.water2 {
+  z-index: 0;
+}
+
+.water3 {
+  z-index: -1;
+  transform: rotate(110deg)
+}
+
+.school {
+  z-index: 6;
+}
+
+.b1 {
+  z-index: 8;
+}
+
+.b2 {
+  z-index: 7;
+}
+
+.b3 {
+  z-index: 2;
+}
+
+.yi1 {
+  z-index: 7;
+}
+
+.yi2 {
+  z-index: 9;
+}
+
+.food {
+  z-index: 6;
+}
+
+.road2 {
+  z-index: 4;
+}
+
+.road3 {
+  position: absolute;
+  z-index: 4;
+}
+
+.road4 {
+  z-index: 5;
+}
+
+.road44 {
+  z-index: 0;
+}
+
+.road5 {
+  z-index: 3;
+}
+/* index.wxss */
+.tutorial-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.highlight {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.7);
+  /* Additional styles to create the 'highlight' effect */
+}
+
+.highlight-props {
+  z-index: 40;
+  top: 20rpx;
+  right: 20rpx;
+  width: 100rpx;
+  height: 100rpx;
+  /* Adjust size and position to match the props area */
+}
+
+/* ... 样式适配其他高亮区域 ... */
+
+.tutorial-message {
+  z-index: 41;
+  position: fixed;
+  width: 80%;
+  left: 10%;
+  bottom: 50rpx;
+  z-index: 1001;
+  background-color: rgba(255, 255, 255, 0.678);
+  padding: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.3);
+  border-radius: 20rpx;
+  font-size: 32rpx;
+}
+.task-title{
+  margin-top: 20rpx;
+  text-align: center;
+}
+.gotoFinish{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.next-step-btn {
+  z-index: 41;
+  margin-top: 20rpx;
+  font-size: 25rpx;
+}
+.arrow1{
+  position: absolute;
+  z-index: 30;
+  transform: rotate(90deg);
+}
+.arrow2{
+  position: absolute;
+  z-index: 30;
+  transform: rotate(-145deg);
+}
+.arrow3{
+  position: absolute;
+  z-index: 30;
+  transform: rotate(-90deg);
+}
+.arrow4{
+  position: absolute;
+  z-index: 30;
+  transform: rotate(-90deg);
+}

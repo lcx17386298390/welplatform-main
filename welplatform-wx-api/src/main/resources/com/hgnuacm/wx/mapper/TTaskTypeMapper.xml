@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hgnuacm.wx.mapper.TTaskTypeMapper">
+
+    <resultMap type="com.hgnuacm.wx.domain.TTaskType" id="TTaskTypeResult">
+        <result property="uid"    column="uid"    />
+        <result property="typeName"    column="type_name"    />
+        <result property="type"    column="type"    />
+        <result property="typeDesc"    column="type_desc"    />
+        <result property="taskId"    column="task_id"    />
+        <result property="latitude"    column="latitude"    />
+        <result property="longitude"    column="longitude"    />
+    </resultMap>
+
+    <sql id="selectTTaskTypeVo">
+        select uid, type_name, type, type_desc, task_id , latitude, longitude from t_task_type
+    </sql>
+
+    <select id="selectTTaskTypeList" parameterType="com.hgnuacm.wx.domain.TTaskType" resultMap="TTaskTypeResult">
+        <include refid="selectTTaskTypeVo"/>
+        <where>
+            <if test="typeName != null  and typeName != ''"> and type_name like concat('%', #{typeName}, '%')</if>
+            <if test="type != null "> and type = #{type}</if>
+            <if test="typeDesc != null  and typeDesc != ''"> and type_desc = #{typeDesc}</if>
+        </where>
+    </select>
+
+    <select id="selectTTaskTypeByUid" parameterType="String" resultMap="TTaskTypeResult">
+        <include refid="selectTTaskTypeVo"/>
+        where uid = #{uid}
+    </select>
+
+    <select id="selectTTaskTypeByTaskId" parameterType="String" resultMap="TTaskTypeResult">
+        <include refid="selectTTaskTypeVo"/>
+        where task_id = #{taskId}
+    </select>
+
+    <insert id="insertTTaskType" parameterType="com.hgnuacm.wx.domain.TTaskType">
+        insert into t_task_type
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">uid,</if>
+            <if test="typeName != null">type_name,</if>
+            <if test="type != null">type,</if>
+            <if test="typeDesc != null">type_desc,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">#{uid},</if>
+            <if test="typeName != null">#{typeName},</if>
+            <if test="type != null">#{type},</if>
+            <if test="typeDesc != null">#{typeDesc},</if>
+        </trim>
+    </insert>
+
+    <update id="updateTTaskType" parameterType="com.hgnuacm.wx.domain.TTaskType">
+        update t_task_type
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="typeName != null">type_name = #{typeName},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="typeDesc != null">type_desc = #{typeDesc},</if>
+        </trim>
+        where uid = #{uid}
+    </update>
+
+    <delete id="deleteTTaskTypeByUid" parameterType="String">
+        delete from t_task_type where uid = #{uid}
+    </delete>
+
+    <delete id="deleteTTaskTypeByUids" parameterType="String">
+        delete from t_task_type where uid in
+        <foreach item="uid" collection="array" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </delete>
+</mapper>

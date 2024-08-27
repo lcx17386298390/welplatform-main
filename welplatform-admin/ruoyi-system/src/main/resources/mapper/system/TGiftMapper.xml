@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.TGiftMapper">
+    
+    <resultMap type="TGift" id="TGiftResult">
+        <result property="giftId"    column="gift_id"    />
+        <result property="giftName"    column="gift_name"    />
+        <result property="requiredPoints"    column="required_points"    />
+        <result property="description"    column="description"    />
+        <result property="stockQuantity"    column="stock_quantity"    />
+        <result property="imageLink"    column="image_link"    />
+        <result property="price"    column="price"    />
+        <result property="sourceCompany"    column="source_company"    />
+    </resultMap>
+
+    <sql id="selectTGiftVo">
+        select gift_id, gift_name, required_points, description, stock_quantity, image_link, price, source_company from t_gift
+    </sql>
+
+    <select id="selectTGiftList" parameterType="TGift" resultMap="TGiftResult">
+        <include refid="selectTGiftVo"/>
+        <where>  
+            <if test="giftName != null  and giftName != ''"> and gift_name like concat('%', #{giftName}, '%')</if>
+            <if test="requiredPoints != null "> and required_points = #{requiredPoints}</if>
+            <if test="description != null  and description != ''"> and description = #{description}</if>
+            <if test="stockQuantity != null "> and stock_quantity = #{stockQuantity}</if>
+            <if test="imageLink != null  and imageLink != ''"> and image_link = #{imageLink}</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="sourceCompany != null  and sourceCompany != ''"> and source_company = #{sourceCompany}</if>
+        </where>
+    </select>
+    
+    <select id="selectTGiftByGiftId" parameterType="String" resultMap="TGiftResult">
+        <include refid="selectTGiftVo"/>
+        where gift_id = #{giftId}
+    </select>
+        
+    <insert id="insertTGift" parameterType="TGift">
+        insert into t_gift
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="giftId != null">gift_id,</if>
+            <if test="giftName != null">gift_name,</if>
+            <if test="requiredPoints != null">required_points,</if>
+            <if test="description != null">description,</if>
+            <if test="stockQuantity != null">stock_quantity,</if>
+            <if test="imageLink != null">image_link,</if>
+            <if test="price != null">price,</if>
+            <if test="sourceCompany != null">source_company,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="giftId != null">#{giftId},</if>
+            <if test="giftName != null">#{giftName},</if>
+            <if test="requiredPoints != null">#{requiredPoints},</if>
+            <if test="description != null">#{description},</if>
+            <if test="stockQuantity != null">#{stockQuantity},</if>
+            <if test="imageLink != null">#{imageLink},</if>
+            <if test="price != null">#{price},</if>
+            <if test="sourceCompany != null">#{sourceCompany},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTGift" parameterType="TGift">
+        update t_gift
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="giftName != null">gift_name = #{giftName},</if>
+            <if test="requiredPoints != null">required_points = #{requiredPoints},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="stockQuantity != null">stock_quantity = #{stockQuantity},</if>
+            <if test="imageLink != null">image_link = #{imageLink},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="sourceCompany != null">source_company = #{sourceCompany},</if>
+        </trim>
+        where gift_id = #{giftId}
+    </update>
+
+    <delete id="deleteTGiftByGiftId" parameterType="String">
+        delete from t_gift where gift_id = #{giftId}
+    </delete>
+
+    <delete id="deleteTGiftByGiftIds" parameterType="String">
+        delete from t_gift where gift_id in 
+        <foreach item="giftId" collection="array" open="(" separator="," close=")">
+            #{giftId}
+        </foreach>
+    </delete>
+</mapper>

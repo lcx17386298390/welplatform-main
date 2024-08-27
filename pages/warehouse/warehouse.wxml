@@ -1,0 +1,14 @@
+<!--pages/warehouse/warehouse.wxml-->
+<view class="page-container" style="background-image: url('https://miimhub.com/UI/bb.png?e=1713455281&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:qngSYsLbJqZTcSTAca6hQKERE_8='); width: 750rpx; height: 1460rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx">
+  <view class="items-container" style="width: 719rpx; height: 860rpx; display: flex; box-sizing: border-box; position: relative; left: 16rpx; top: 152rpx">
+    <view class="item" wx:for="{{pagedItems}}" wx:key="*this" wx:for-index="index" wx:for-item="item" style="background-image: url('https://miimhub.com/taskUI/item.png?e=1713455297&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:dgJfEoLyzLnaByWd0bRMC4SVufY='); position: relative; left: 7rpx; top: 44rpx; width: 360rpx; height: 369rpx; display: block; box-sizing: border-box">
+      <image class="daoju" style="width: 294rpx; height: 281rpx; display: inline-block; box-sizing: border-box; left: 33rpx; top: 44rpx; position: relative" src="{{item.image}}" />
+      <text class="itemName" style="position: relative; left: 16rpx; top: 125rpx">{{item.name}}</text>
+    </view>
+  </view>
+
+  <view class="pagination" style="width: 670rpx; height: 117rpx; display: flex; box-sizing: border-box; left: 375rpx; top: 524rpx; position: absolute">
+    <button class="page-btn" style="background-image: url('https://miimhub.com/taskUI/left.png?e=1713455311&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:FIaDx_61XZ_VPhO91XgjZzrzt7w='); position: relative; left: -271rpx; top: 35rpx; width: 107rpx; height: 117rpx; display: block; box-sizing: border-box" bindtap="onPrevPage"></button>
+    <button class="page-btn-next" bindtap="onNextPage" style="background-image: url('https://miimhub.com/taskUI/right.png?e=1713455317&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:lg4621o3wl_SB5U2dMY0NybkR9A='); position: relative; left: 266rpx; top: 35rpx; width: 107rpx; height: 117rpx; display: block; box-sizing: border-box"></button>
+  </view>
+</view>

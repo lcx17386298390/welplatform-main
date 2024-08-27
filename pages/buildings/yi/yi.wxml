@@ -1,0 +1,87 @@
+<view class="building-page" style="background-image: url('https://miimhub.com/UI/bb.png?e=1713453865&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:uwIJoY0ojxGTPUMq02uVLQ9gfzg='); width: 754rpx; height: 1506rpx; display: block; box-sizing: border-box; position: absolute; left: -3rpx; top: -1rpx " bind:tap="onTap">
+  <!-- 总任务进度条 <progress percent="{{totalProgress}}" show-info stroke-width="2" />-->
+  <!-- 任务列表 -->
+  <!--
+      <view class="task-list" style="width: 350rpx; height: 800rpx; display: block; box-sizing: border-box">
+        </view>
+  -->
+
+  <!--楼栋介绍 -->
+  <scroll-view scroll-y="true" class="introduce" hidden="{{activeView !== 'introduce'}}" bindtap="preventClose">
+    <view> <text>逸夫楼楼栋介绍</text> </view>
+    <text>\n</text>
+    <view>逸夫楼是由香港知名电影制作人、娱乐业巨头和慈善家邵逸夫先生慷慨捐资建设的现代化科技创新大楼。全名为逸夫教学楼，它在我校扮演着重要角色，主要用于培养我校学生在人工智能领域的才能，并推动教学科研和科技创新的发展， 内部设有多功能教室、实验室、会议室和交流展示区，为学生、教师和研究人员提供了一个开放、鼓励创新的学术环境。这个楼内还有先进的计算机实验室和数据分析中心，为学生提供了实践机会，让他们能够亲身参与人工智能项目的开发和实施，此外，逸夫楼还经常举办学术研讨会、创新竞赛和行业论坛，为科技爱好者们提供了一个分享知识、探讨前沿科技的重要场所。
+    </view>
+  </scroll-view>
+  <!--打卡任务列表 -->
+  <scroll-view scroll-y="true" hidden="{{activeView !== 'tasklist'}}" bindtap="preventClose" class="task-li">
+    <block wx:for="{{tasks}}" wx:key="id">
+      <view class="task-item" catchtap="viewDetails" data-id="{{item.task.uid}}">
+        <view>
+          <image class="task-icon" src="https://miimhub.com/taskUI/vine2.png?e=1713453886&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:knVL8C8XszqNz1E-Hs0pLT7kJxc="></image>
+        </view>
+        <view class="task-content">
+          <text class="task-name">{{item.task.taskName}}</text>
+        </view>
+        <view class="task-action">
+          <view wx:if="{{item.status}}" class="completed pixel-font">已完成</view>
+          <view wx:else class="to-complete" bindtap="completeTask" data-id="{{item.id}}">去完成</view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+  <!---注意事项-->
+  <scroll-view class="introduce" hidden="{{activeView !== 'notice'}}" bindtap="preventClose" scroll-y="true">
+    <view> <text>注意事项</text> </view>
+    <view>
+      <text>
+        1.尊重他人的隐私，请避免偷窥、拍照或录像他人，以及未经授权发布他人的个人信息或研究成果。\n
+        2.请谨慎使用并保持设施的完好状态。遵守设施的使用规定。\n
+        3.请保持安静和尊重他人的学习和研究。避免大声喧哗或制造噪音\n
+        4.请勿在楼内吸烟、乱丢垃圾，共同维护教学楼的卫生环境。\n
+        5.爱护教学楼内的一切设施，禁止在墙面涂鸦，擅自移动或损坏设备和家具。\n
+      </text>
+    </view>
+  </scroll-view>
+  <!--标签页 -->
+  <view style="position: absolute; top: 65rpx; left: 28rpx; width: 700rpx; height: 1270rpx; display: block; box-sizing: border-box" hidden="{{pageView}}">
+    <view style="position: relative; height: 138rpx; width: 241rpx; margin-bottom: 10px; top: 67rpx; left: 27rpx; display: block; box-sizing: border-box">
+      <image src="https://miimhub.com/pageUI/swiper.png?e=1713453904&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:fmpo-XzQPyT5KjinSk6t5_0MkpE=" style="height: 110rpx; width: 225rpx; position: relative; left: -21rpx; top: 2rpx; display: inline-block; box-sizing: border-box"></image>
+      <text style="position: absolute; top: 19rpx; padding-left: 35rpx; left: 0rpx; right: 2px; width: 185rpx; height: 77rpx; line-height: 50px; text-align: center; display: flex; box-sizing: border-box" catchtap="showIntroduce">楼栋介绍</text>
+    </view>
+    <view style="position: relative; height: 138rpx; width: 260rpx; margin-bottom: 10px; top: -89rpx; left: 198rpx; display: block; box-sizing: border-box">
+      <image src="https://miimhub.com/pageUI/swiper.png?e=1713453904&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:fmpo-XzQPyT5KjinSk6t5_0MkpE=" style="height: 109rpx; width: 201rpx; position: relative; left: 42rpx; top: 2rpx; display: inline-block; box-sizing: border-box"></image>
+      <text style="position: absolute; top: 18rpx; left: 55rpx; width: 175rpx; height: 77rpx; line-height: 50px; text-align: center; display: block; box-sizing: content-box" catchtap="showTaskList">打卡列表</text>
+    </view>
+    <view style="position: relative; height: 110rpx; width: 260rpx; margin-bottom: 10px; top: -245rpx; left: 402rpx; display: block; box-sizing: border-box">
+      <image src="https://miimhub.com/pageUI/swiper.png?e=1713453904&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:fmpo-XzQPyT5KjinSk6t5_0MkpE=" style="height: 112rpx; width: 205rpx; position: relative; left: 56rpx; top: -2rpx; display: inline-block; box-sizing: border-box"></image>
+      <text style="position: absolute; top: 14rpx; left: 82rpx; width: 164rpx; height: 84rpx; line-height: 50px; text-align: center; display: block; box-sizing: border-box" catchtap="showNotice">注意事项</text>
+    </view>
+  </view>
+
+</view>
+<!-- 
+      循环显示任务
+          <block wx:for="{{tasks}}" wx:key="id">
+      <view class="task-item" data-id="{{item.id}}" style="background-image: url('/static/images/taskUI/taskbgm2.png'); width: 644rpx; height: 274rpx; display: block; box-sizing: border-box; left: 39rpx; top: 48rpx; position: relative">
+        任务标题和内容描述
+        <view class="task-content">
+          <text class="task-title" style="position: relative; left: 62rpx; top: 20rpx">{{item.title}}</text>
+        </view>
+        任务状态
+        <text class="task-status" style="position: relative; left: 15rpx; top: -9rpx">{{item.status}}</text>
+        弹窗按钮
+        <button class="view-detail-btn" data-id="{{item.id}}" bindtap="showDialog" style="background-image: url(/static/images/taskUI/look.png); width: 398rpx; height: 189rpx; display: block; box-sizing: border-box; left: 269rpx; top: 137rpx; position: absolute">查看详情</button>
+        <t-dialog visible="{{showMultiTextAndTitle}}" title="{{dialogTitle}}" confirm-btn="{{ confirmBtn }}" cancel-btn="{{ goBtn }}" bind:confirm="closeDialog" bindcancel="goToComplete" style="background-image: url('/static/images/taskbgm.png');">
+          <scroll-view slot="content" scroll-y class="long-content">
+            <view class="content-container" style="width: 527rpx; height: 384rpx; display: block; box-sizing: border-box">{{dialogDescription}}</view>
+          </scroll-view>
+        </t-dialog>
+        <view id="image">
+          <image wx:if="{{item.status === '已完成'}}" src="/static/images/taskUI/complet.png" class="status" style="width: 138rpx; height: 105rpx; display: block; box-sizing: border-box; left: 1rpx; top: 137rpx; position: absolute"></image>
+          <image wx:else src="/static/images/taskUI/unComplet.png" class="status" style="width: 138rpx; height: 107rpx; display: inline-block; box-sizing: border-box; left: -1rpx; top: 168rpx; position: absolute"></image>
+          <image class="vine" src="/static/images/taskUI/vine.png" style="position: relative; left: -49rpx; top: -109rpx; width: 138rpx; height: 128rpx; display: inline-block; box-sizing: border-box"></image>
+        </view>
+      </view>
+    </block>
+     -->

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.TTaskTypeMapper">
+    
+    <resultMap type="TTaskType" id="TTaskTypeResult">
+        <result property="uid"    column="uid"    />
+        <result property="typeName"    column="type_name"    />
+        <result property="type"    column="type"    />
+        <result property="typeDesc"    column="type_desc"    />
+        <result property="taskId"    column="task_id"    />
+        <result property="latitude"    column="latitude"    />
+        <result property="longitude"    column="longitude"    />
+    </resultMap>
+
+    <sql id="selectTTaskTypeVo">
+        select uid, type_name, type, type_desc, task_id, latitude, longitude from t_task_type
+    </sql>
+
+    <select id="selectTTaskTypeList" parameterType="TTaskType" resultMap="TTaskTypeResult">
+        <include refid="selectTTaskTypeVo"/>
+        <where>  
+            <if test="typeName != null  and typeName != ''"> and type_name like concat('%', #{typeName}, '%')</if>
+            <if test="type != null "> and type = #{type}</if>
+            <if test="typeDesc != null  and typeDesc != ''"> and type_desc = #{typeDesc}</if>
+            <if test="taskId != null  and taskId != ''"> and task_id = #{taskId}</if>
+            <if test="latitude != null "> and latitude = #{latitude}</if>
+            <if test="longitude != null "> and longitude = #{longitude}</if>
+        </where>
+    </select>
+    
+    <select id="selectTTaskTypeByUid" parameterType="String" resultMap="TTaskTypeResult">
+        <include refid="selectTTaskTypeVo"/>
+        where uid = #{uid}
+    </select>
+        
+    <insert id="insertTTaskType" parameterType="TTaskType">
+        insert into t_task_type
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">uid,</if>
+            <if test="typeName != null">type_name,</if>
+            <if test="type != null">type,</if>
+            <if test="typeDesc != null and typeDesc != ''">type_desc,</if>
+            <if test="taskId != null and taskId != ''">task_id,</if>
+            <if test="latitude != null">latitude,</if>
+            <if test="longitude != null">longitude,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">#{uid},</if>
+            <if test="typeName != null">#{typeName},</if>
+            <if test="type != null">#{type},</if>
+            <if test="typeDesc != null and typeDesc != ''">#{typeDesc},</if>
+            <if test="taskId != null and taskId != ''">#{taskId},</if>
+            <if test="latitude != null">#{latitude},</if>
+            <if test="longitude != null">#{longitude},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTTaskType" parameterType="TTaskType">
+        update t_task_type
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="typeName != null">type_name = #{typeName},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="typeDesc != null and typeDesc != ''">type_desc = #{typeDesc},</if>
+            <if test="taskId != null and taskId != ''">task_id = #{taskId},</if>
+            <if test="latitude != null">latitude = #{latitude},</if>
+            <if test="longitude != null">longitude = #{longitude},</if>
+        </trim>
+        where uid = #{uid}
+    </update>
+
+    <delete id="deleteTTaskTypeByUid" parameterType="String">
+        delete from t_task_type where uid = #{uid}
+    </delete>
+
+    <delete id="deleteTTaskTypeByUids" parameterType="String">
+        delete from t_task_type where uid in 
+        <foreach item="uid" collection="array" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </delete>
+</mapper>

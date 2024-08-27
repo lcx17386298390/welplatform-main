@@ -1,0 +1,27 @@
+<view class="container" style="position: relative; left: 1rpx; top: 1rpx">
+  <view class="bgm" style="position: absolute; left: -144rpx; top: 23rpx; width: 1938rpx; height: 1410rpx; display: block; box-sizing: border-box">
+    <image class="bgmImage" src="https://miimhub.com/login/loginbgm1.jpg?e=1713453678&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:ISJbL-LlCjoL-Shyytvj4lk4Mfs=" style="position: relative; left: -969rpx; top: -806rpx; width: 1943rpx; height: 2930rpx; display: inline-block; box-sizing: border-box"></image>
+  </view>
+  <view class="form-box" style="position: relative; left: 188rpx; top: 69rpx; width: 527rpx; height: 764rpx; display: flex; box-sizing: border-box">
+    <t-toast id="t-toast" />
+
+    <!-- <van-cell-group> -->
+    <view class="form-item" style="background-image: url('https://miimhub.com/login/bgm.png?e=1713453688&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:8mZz0DqE1cIR8VTWjEnzW85QEZU='); position: relative; left: -60rpx; top: -1rpx; width: 492rpx; height: 205rpx; display: block; box-sizing: border-box">
+      <!-- <input class="username" value="{{username}}" bindinput="bindUsernameInput" placeholder="账号"/>
+    		<image wx:if="{{ username.length > 0 }}" id="clear-username" class="clear" src="/static/images/clear_input.png" catchtap="clearInput"></image> -->
+      <t-input class="input" value="{{username}}" clearable label="账号" bind:blur="bindUsernameInput" placeholder="请输入账号"></t-input>
+    </view>
+
+    <view class="form-item" style="background-image: url('https://miimhub.com/login/bgm.png?e=1713453688&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:8mZz0DqE1cIR8VTWjEnzW85QEZU='); position: relative; left: -63rpx; top: 2rpx; width: 492rpx; height: 205rpx; display: block; box-sizing: border-box">
+      <!-- <input class="password" value="{{password}}" password bindinput="bindPasswordInput" placeholder="密码"/>
+    		<image class="clear" id="clear-password" wx:if="{{ password.length > 0 }}" src="/static/images/clear_input.png" catchtap="clearInput"></image> -->
+      <t-input class="input" value="{{password}}" clearable type="password" label="密码" bind:blur="bindPasswordInput" placeholder="请输入密码"></t-input>
+    </view>
+    <t-button style="background-image: url('https://miimhub.com/login/login-sure2.png?e=1713453701&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:eg3wae05L4TisxArPXJeWq-iJ0I=');" size="large" icon="friends" theme="default" shape="round" class="login-btn-active" bindtap="accountLogin">登录</t-button>
+
+    <view class="form-item-text" style="width: 328rpx; height: 117rpx; display: flex; box-sizing: border-box; position: relative; left: 1rpx; top: 6rpx">
+      <navigator url="/pages/auth/register/register" class="register">注册账号</navigator>
+      <navigator url="/pages/auth/reset/reset" class="reset">忘记密码</navigator>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.TUserMapper">
+    
+    <resultMap type="TUser" id="TUserResult">
+        <result property="uid"    column="uid"    />
+        <result property="userName"    column="user_name"    />
+        <result property="password"    column="password"    />
+        <result property="gender"    column="gender"    />
+        <result property="avatar"    column="avatar"    />
+        <result property="mobile"    column="mobile"    />
+        <result property="ipSource"    column="ip_source"    />
+        <result property="school"    column="school"    />
+        <result property="name"    column="name"    />
+        <result property="idCard"    column="id_card"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="status"    column="status"    />
+        <result property="studentId"    column="student_id"    />
+        <result property="admissionStatus"    column="admission_status"    />
+        <result property="major"    column="major"    />
+        <result property="weixinOpenid"    column="weixin_openid"    />
+        <result property="shareUserId"    column="share_user_id"    />
+        <result property="email"    column="email"    />
+        <result property="photo"    column="photo"    />
+    </resultMap>
+
+    <sql id="selectTUserVo">
+        select uid, user_name, password, gender, avatar, mobile, ip_source, school, name, id_card, create_time, status, student_id, admission_status, major, weixin_openid, share_user_id, email, photo from t_user
+    </sql>
+
+    <select id="selectTUserList" parameterType="TUser" resultMap="TUserResult">
+        <include refid="selectTUserVo"/>
+        <where>  
+            <if test="userName != null  and userName != ''"> and user_name like concat('%', #{userName}, '%')</if>
+            <if test="password != null  and password != ''"> and password = #{password}</if>
+            <if test="gender != null "> and gender = #{gender}</if>
+            <if test="avatar != null  and avatar != ''"> and avatar = #{avatar}</if>
+            <if test="mobile != null  and mobile != ''"> and mobile = #{mobile}</if>
+            <if test="ipSource != null  and ipSource != ''"> and ip_source = #{ipSource}</if>
+            <if test="school != null  and school != ''"> and school = #{school}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="idCard != null  and idCard != ''"> and id_card = #{idCard}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="studentId != null  and studentId != ''"> and student_id = #{studentId}</if>
+            <if test="admissionStatus != null "> and admission_status = #{admissionStatus}</if>
+            <if test="major != null  and major != ''"> and major = #{major}</if>
+            <if test="weixinOpenid != null  and weixinOpenid != ''"> and weixin_openid = #{weixinOpenid}</if>
+            <if test="shareUserId != null "> and share_user_id = #{shareUserId}</if>
+            <if test="email != null  and email != ''"> and email = #{email}</if>
+            <if test="photo != null  and photo != ''"> and photo = #{photo}</if>
+        </where>
+    </select>
+    
+    <select id="selectTUserByUid" parameterType="String" resultMap="TUserResult">
+        <include refid="selectTUserVo"/>
+        where uid = #{uid}
+    </select>
+
+    <select id="getUserList" resultMap="TUserResult">
+        select * from t_user
+    </select>
+
+    <select id="getUserCount" resultType="java.lang.Integer">
+        select count(*) from t_user
+    </select>
+
+    <insert id="insertTUser" parameterType="TUser">
+        insert into t_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">uid,</if>
+            <if test="userName != null and userName != ''">user_name,</if>
+            <if test="password != null and password != ''">password,</if>
+            <if test="gender != null">gender,</if>
+            <if test="avatar != null">avatar,</if>
+            <if test="mobile != null">mobile,</if>
+            <if test="ipSource != null">ip_source,</if>
+            <if test="school != null">school,</if>
+            <if test="name != null">name,</if>
+            <if test="idCard != null">id_card,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="status != null">status,</if>
+            <if test="studentId != null">student_id,</if>
+            <if test="admissionStatus != null">admission_status,</if>
+            <if test="major != null">major,</if>
+            <if test="weixinOpenid != null and weixinOpenid != ''">weixin_openid,</if>
+            <if test="shareUserId != null">share_user_id,</if>
+            <if test="email != null">email,</if>
+            <if test="photo != null">photo,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">#{uid},</if>
+            <if test="userName != null and userName != ''">#{userName},</if>
+            <if test="password != null and password != ''">#{password},</if>
+            <if test="gender != null">#{gender},</if>
+            <if test="avatar != null">#{avatar},</if>
+            <if test="mobile != null">#{mobile},</if>
+            <if test="ipSource != null">#{ipSource},</if>
+            <if test="school != null">#{school},</if>
+            <if test="name != null">#{name},</if>
+            <if test="idCard != null">#{idCard},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="status != null">#{status},</if>
+            <if test="studentId != null">#{studentId},</if>
+            <if test="admissionStatus != null">#{admissionStatus},</if>
+            <if test="major != null">#{major},</if>
+            <if test="weixinOpenid != null and weixinOpenid != ''">#{weixinOpenid},</if>
+            <if test="shareUserId != null">#{shareUserId},</if>
+            <if test="email != null">#{email},</if>
+            <if test="photo != null">#{photo},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTUser" parameterType="TUser">
+        update t_user
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userName != null and userName != ''">user_name = #{userName},</if>
+            <if test="password != null and password != ''">password = #{password},</if>
+            <if test="gender != null">gender = #{gender},</if>
+            <if test="avatar != null">avatar = #{avatar},</if>
+            <if test="mobile != null">mobile = #{mobile},</if>
+            <if test="ipSource != null">ip_source = #{ipSource},</if>
+            <if test="school != null">school = #{school},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="idCard != null">id_card = #{idCard},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="studentId != null">student_id = #{studentId},</if>
+            <if test="admissionStatus != null">admission_status = #{admissionStatus},</if>
+            <if test="major != null">major = #{major},</if>
+            <if test="weixinOpenid != null and weixinOpenid != ''">weixin_openid = #{weixinOpenid},</if>
+            <if test="shareUserId != null">share_user_id = #{shareUserId},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="photo != null">photo = #{photo},</if>
+        </trim>
+        where uid = #{uid}
+    </update>
+
+    <delete id="deleteTUserByUid" parameterType="String">
+        delete from t_user where uid = #{uid}
+    </delete>
+
+    <delete id="deleteTUserByUids" parameterType="String">
+        delete from t_user where uid in 
+        <foreach item="uid" collection="array" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </delete>
+</mapper>

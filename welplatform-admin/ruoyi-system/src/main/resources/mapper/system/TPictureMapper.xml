@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.TPictureMapper">
+    
+    <resultMap type="TPicture" id="TPictureResult">
+        <result property="uid"    column="uid"    />
+        <result property="picName"    column="pic_name"    />
+        <result property="picUrl"    column="pic_url"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="status"    column="status"    />
+        <result property="qiNiuUrl"    column="qi_niu_url"    />
+        <result property="picExpandedName"    column="pic_expanded_name"    />
+    </resultMap>
+
+    <sql id="selectTPictureVo">
+        select uid, pic_name, pic_url, create_time, update_time, status, qi_niu_url, pic_expanded_name from t_picture
+    </sql>
+
+    <select id="selectTPictureList" parameterType="TPicture" resultMap="TPictureResult">
+        <include refid="selectTPictureVo"/>
+        <where>  
+            <if test="picName != null  and picName != ''"> and pic_name like concat('%', #{picName}, '%')</if>
+            <if test="picUrl != null  and picUrl != ''"> and pic_url = #{picUrl}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="qiNiuUrl != null  and qiNiuUrl != ''"> and qi_niu_url = #{qiNiuUrl}</if>
+            <if test="picExpandedName != null  and picExpandedName != ''"> and pic_expanded_name like concat('%', #{picExpandedName}, '%')</if>
+        </where>
+    </select>
+    
+    <select id="selectTPictureByUid" parameterType="String" resultMap="TPictureResult">
+        <include refid="selectTPictureVo"/>
+        where uid = #{uid}
+    </select>
+        
+    <insert id="insertTPicture" parameterType="TPicture">
+        insert into t_picture
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">uid,</if>
+            <if test="picName != null">pic_name,</if>
+            <if test="picUrl != null">pic_url,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="status != null">status,</if>
+            <if test="qiNiuUrl != null">qi_niu_url,</if>
+            <if test="picExpandedName != null">pic_expanded_name,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">#{uid},</if>
+            <if test="picName != null">#{picName},</if>
+            <if test="picUrl != null">#{picUrl},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="status != null">#{status},</if>
+            <if test="qiNiuUrl != null">#{qiNiuUrl},</if>
+            <if test="picExpandedName != null">#{picExpandedName},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTPicture" parameterType="TPicture">
+        update t_picture
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="picName != null">pic_name = #{picName},</if>
+            <if test="picUrl != null">pic_url = #{picUrl},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="qiNiuUrl != null">qi_niu_url = #{qiNiuUrl},</if>
+            <if test="picExpandedName != null">pic_expanded_name = #{picExpandedName},</if>
+        </trim>
+        where uid = #{uid}
+    </update>
+
+    <delete id="deleteTPictureByUid" parameterType="String">
+        delete from t_picture where uid = #{uid}
+    </delete>
+
+    <delete id="deleteTPictureByUids" parameterType="String">
+        delete from t_picture where uid in 
+        <foreach item="uid" collection="array" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </delete>
+</mapper>

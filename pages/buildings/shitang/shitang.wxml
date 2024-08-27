@@ -1,0 +1,87 @@
+<view class="building-page" style="background-image: url('https://miimhub.com/UI/bb.png?e=1713453865&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:uwIJoY0ojxGTPUMq02uVLQ9gfzg='); width: 754rpx; height: 1506rpx; display: block; box-sizing: border-box; position: absolute; left: -3rpx; top: -1rpx " bind:tap="onTap">
+  <!-- 总任务进度条 <progress percent="{{totalProgress}}" show-info stroke-width="2" />-->
+  <!-- 任务列表 -->
+  <!--
+      <view class="task-list" style="width: 350rpx; height: 800rpx; display: block; box-sizing: border-box">
+        </view>
+  -->
+
+  <!--楼栋介绍 -->
+  <scroll-view scroll-y="true" class="introduce" hidden="{{activeView !== 'introduce'}}" bindtap="preventClose">
+    <view> <text>餐厅介绍</text> </view>
+    <text>\n</text>
+    <view>我校餐厅是追求美食选择多元化的餐厅，餐厅提供多个区域和餐饮站点，每个站点都拥有独特的餐饮概念，无论喜欢中式、西式、日式、韩式或者其他国际美食，都能提供丰富的选择，同时还注重学生的用餐体验，餐厅内设有宽敞明亮的用餐区域，提供舒适的座位和友好的服务。此外，还提供快捷的自助服务和外卖选项，方便忙碌的学生和员工随时享用美食。
+    </view>
+  </scroll-view>
+  <!--打卡任务列表 -->
+  <scroll-view scroll-y="true" hidden="{{activeView !== 'tasklist'}}" bindtap="preventClose" class="task-li">
+    <block wx:for="{{tasks}}" wx:key="id">
+      <view class="task-item" catchtap="viewDetails" data-id="{{item.task.uid}}">
+        <view>
+          <image class="task-icon" src="https://miimhub.com/taskUI/vine2.png?e=1713453886&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:knVL8C8XszqNz1E-Hs0pLT7kJxc="></image>
+        </view>
+        <view class="task-content">
+          <text class="task-name">{{item.task.taskName}}</text>
+        </view>
+        <view class="task-action">
+          <view wx:if="{{item.status}}" class="completed pixel-font">已完成</view>
+          <view wx:else class="to-complete" bindtap="completeTask" data-id="{{item.id}}">去完成</view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+  <!---注意事项-->
+  <scroll-view class="introduce" hidden="{{activeView !== 'notice'}}" bindtap="preventClose" scroll-y="true">
+    <view> <text>注意事项</text> </view>
+    <view>
+      <text>
+        1.请尽量保持用餐区域的安静和整洁。避免大声喧哗，尊重其他客人的用餐环境。\n
+        2.请遵守餐厅的规定和指示，包括排队、就餐时间和用餐流程等。遵循工作人员的指引，有序进行点餐和取餐，以确保用餐过程的顺利进行。\n
+        3.将用过的餐具、纸巾和垃圾放入指定的垃圾桶中，保持桌面的干净整洁。\n
+        4.在指定的吸烟区域外，禁止在餐厅内吸烟。\n
+        5.对餐厅有任何建议、意见或投诉，请随时向工作人员提供反馈。\n
+      </text>
+    </view>
+  </scroll-view>
+  <!--标签页 -->
+  <view style="position: absolute; top: 65rpx; left: 28rpx; width: 700rpx; height: 1270rpx; display: block; box-sizing: border-box" hidden="{{pageView}}">
+    <view style="position: relative; height: 138rpx; width: 241rpx; margin-bottom: 10px; top: 67rpx; left: 27rpx; display: block; box-sizing: border-box">
+      <image src="https://miimhub.com/pageUI/swiper.png?e=1713453904&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:fmpo-XzQPyT5KjinSk6t5_0MkpE=" style="height: 110rpx; width: 225rpx; position: relative; left: -21rpx; top: 2rpx; display: inline-block; box-sizing: border-box"></image>
+      <text style="position: absolute; top: 19rpx; padding-left: 35rpx; left: 0rpx; right: 2px; width: 185rpx; height: 77rpx; line-height: 50px; text-align: center; display: flex; box-sizing: border-box" catchtap="showIntroduce">餐厅介绍</text>
+    </view>
+    <view style="position: relative; height: 138rpx; width: 260rpx; margin-bottom: 10px; top: -89rpx; left: 198rpx; display: block; box-sizing: border-box">
+      <image src="https://miimhub.com/pageUI/swiper.png?e=1713453904&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:fmpo-XzQPyT5KjinSk6t5_0MkpE=" style="height: 109rpx; width: 201rpx; position: relative; left: 42rpx; top: 2rpx; display: inline-block; box-sizing: border-box"></image>
+      <text style="position: absolute; top: 18rpx; left: 55rpx; width: 175rpx; height: 77rpx; line-height: 50px; text-align: center; display: block; box-sizing: content-box" catchtap="showTaskList">打卡列表</text>
+    </view>
+    <view style="position: relative; height: 110rpx; width: 260rpx; margin-bottom: 10px; top: -245rpx; left: 402rpx; display: block; box-sizing: border-box">
+      <image src="https://miimhub.com/pageUI/swiper.png?e=1713453904&token=wBkLtV20GRjR14oQ9Y5FRFoXcMn38yeqc8t_qA4Q:fmpo-XzQPyT5KjinSk6t5_0MkpE=" style="height: 112rpx; width: 205rpx; position: relative; left: 56rpx; top: -2rpx; display: inline-block; box-sizing: border-box"></image>
+      <text style="position: absolute; top: 14rpx; left: 82rpx; width: 164rpx; height: 84rpx; line-height: 50px; text-align: center; display: block; box-sizing: border-box" catchtap="showNotice">注意事项</text>
+    </view>
+  </view>
+
+</view>
+<!-- 
+      循环显示任务
+          <block wx:for="{{tasks}}" wx:key="id">
+      <view class="task-item" data-id="{{item.id}}" style="background-image: url('/static/images/taskUI/taskbgm2.png'); width: 644rpx; height: 274rpx; display: block; box-sizing: border-box; left: 39rpx; top: 48rpx; position: relative">
+        任务标题和内容描述
+        <view class="task-content">
+          <text class="task-title" style="position: relative; left: 62rpx; top: 20rpx">{{item.title}}</text>
+        </view>
+        任务状态
+        <text class="task-status" style="position: relative; left: 15rpx; top: -9rpx">{{item.status}}</text>
+        弹窗按钮
+        <button class="view-detail-btn" data-id="{{item.id}}" bindtap="showDialog" style="background-image: url(/static/images/taskUI/look.png); width: 398rpx; height: 189rpx; display: block; box-sizing: border-box; left: 269rpx; top: 137rpx; position: absolute">查看详情</button>
+        <t-dialog visible="{{showMultiTextAndTitle}}" title="{{dialogTitle}}" confirm-btn="{{ confirmBtn }}" cancel-btn="{{ goBtn }}" bind:confirm="closeDialog" bindcancel="goToComplete" style="background-image: url('/static/images/taskbgm.png');">
+          <scroll-view slot="content" scroll-y class="long-content">
+            <view class="content-container" style="width: 527rpx; height: 384rpx; display: block; box-sizing: border-box">{{dialogDescription}}</view>
+          </scroll-view>
+        </t-dialog>
+        <view id="image">
+          <image wx:if="{{item.status === '已完成'}}" src="/static/images/taskUI/complet.png" class="status" style="width: 138rpx; height: 105rpx; display: block; box-sizing: border-box; left: 1rpx; top: 137rpx; position: absolute"></image>
+          <image wx:else src="/static/images/taskUI/unComplet.png" class="status" style="width: 138rpx; height: 107rpx; display: inline-block; box-sizing: border-box; left: -1rpx; top: 168rpx; position: absolute"></image>
+          <image class="vine" src="/static/images/taskUI/vine.png" style="position: relative; left: -49rpx; top: -109rpx; width: 138rpx; height: 128rpx; display: inline-block; box-sizing: border-box"></image>
+        </view>
+      </view>
+    </block>
+     -->
